@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import BayokLogo from "../assets/media/bayok-logo.jpeg";
 
 const Footer = () => {
   return (
@@ -125,7 +126,17 @@ const Footer = () => {
           <div className="row g-3">
             <div className="col-md-4">
               <div className="pe-xl-5">
-                <div className="ft-logo mb-3 mb-xl-4">{/* Logo content */}</div>
+                <div className="ft-logo mb-3 mb-xl-4">
+                  <Link to="/" className="d-inline-block">
+                    <img
+                      src={BayokLogo}
+                      className="img-fluid"
+                      alt="Bayok State Security Service Logo"
+                      width="130"
+                      height="50"
+                    />
+                  </Link>
+                </div>
                 <div className="asr-footer-wrap mb-4">
                   <p>
                     Bayok State Security Service offers professional security

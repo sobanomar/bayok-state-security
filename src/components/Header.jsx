@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import BayokLogo from "../assets/media/bayok-logo.jpeg";
 
 const Header = () => {
   return (
@@ -11,8 +12,9 @@ const Header = () => {
               <div className="bsk-logo">
                 <Link to="/" className="d-inline-block">
                   <img
+                    src={BayokLogo}
                     className="img-fluid"
-                    alt="header logo"
+                    alt="Bayok State Security Service Logo"
                     width="130"
                     height="50"
                   />
