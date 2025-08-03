@@ -6,13 +6,28 @@ import BayokLogo from "../assets/media/bayok-logo.jpeg";
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [isDrawerVisible, setIsDrawerVisible] = useState(false);
 
-  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  const toggleMenu = () => {
+    if (isMenuOpen) {
+      // Closing
+      setIsDrawerVisible(false);
+      setTimeout(() => setIsMenuOpen(false), 300);
+    } else {
+      // Opening
+      setIsMenuOpen(true);
+      setTimeout(() => setIsDrawerVisible(true), 10);
+    }
+  };
+
   const toggleServices = () => setIsServicesOpen(!isServicesOpen);
 
   const closeMenu = () => {
-    setIsMenuOpen(false);
-    setIsServicesOpen(false);
+    setIsDrawerVisible(false);
+    setTimeout(() => {
+      setIsMenuOpen(false);
+      setIsServicesOpen(false);
+    }, 300);
   };
 
   const services = [
@@ -206,11 +221,7 @@ const Header = () => {
                   onClick={toggleMenu}
                   aria-label="Toggle navigation"
                 >
-                  {isMenuOpen ? (
-                    <X className="h-6 w-6 text-white" />
-                  ) : (
-                    <Menu className="h-6 w-6 text-white" />
-                  )}
+                  <Menu className="h-6 w-6 text-white" />
                 </button>
               </div>
             </div>
@@ -220,9 +231,11 @@ const Header = () => {
 
       {isMenuOpen && (
         <div className="fixed inset-0 z-50 lg:hidden" onClick={closeMenu}>
-          <div className="absolute inset-0 bg-black bg-opacity-20 transition-opacity duration-300"></div>
+          <div className="absolute inset-0 bg-opacity-20 transition-opacity duration-300"></div>
           <div
-            className="absolute right-0 top-0 h-full w-80 max-w-[85vw] bg-blue-800 shadow-xl transition-transform duration-500 ease-in-out"
+            className={`absolute right-0 top-0 h-full w-80 max-w-[85vw] bg-blue-800 shadow-xl transform transition-transform duration-500 ease-in-out ${
+              isDrawerVisible ? "translate-x-0" : "translate-x-full"
+            }`}
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-center p-4 justify-end">
