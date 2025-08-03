@@ -257,7 +257,7 @@ const Header = () => {
                                 : "max-h-0 opacity-0"
                             }`}
                           >
-                            <ul className="space-y-1 px-8">
+                            <ul className="space-y-1 px-8 py-2">
                               {services.map((service) => (
                                 <li key={service.path}>
                                   <Link
