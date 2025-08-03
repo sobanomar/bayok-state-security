@@ -237,10 +237,10 @@ const Header = () => {
                   {navItems.map((item) => (
                     <l key={item.path}>
                       {item.hasDropdown ? (
-                        <div className="border-b border-white py-3">
+                        <div className="border-b border-white">
                           <button
                             onClick={toggleServices}
-                            className="flex  w-full items-center justify-between px-4 text-left text-lg font-medium text-white hover:bg-blue-700 rounded-lg transition-colors "
+                            className="flex  w-full items-center justify-between px-4 py-3 text-left text-lg font-medium text-white hover:bg-blue-700 rounded-lg transition-colors "
                           >
                             {item.name}
                             <ChevronDown
@@ -257,7 +257,7 @@ const Header = () => {
                                 : "max-h-0 opacity-0"
                             }`}
                           >
-                            <ul className=" space-y-1 px-8 ">
+                            <ul className="space-y-1 px-8">
                               {services.map((service) => (
                                 <li key={service.path}>
                                   <Link
