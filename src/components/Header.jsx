@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { ChevronDown, Phone, Menu, X, ArrowRight } from "lucide-react";
 import BayokLogo from "../assets/media/bayok-logo.jpeg";
@@ -6,36 +6,12 @@ import BayokLogo from "../assets/media/bayok-logo.jpeg";
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
-  const [isDrawerVisible, setIsDrawerVisible] = useState(false);
 
-  const toggleMenu = () => {
-    if (isMenuOpen) {
-      // Closing
-      setIsDrawerVisible(false);
-      setTimeout(() => setIsMenuOpen(false), 300); // Wait for animation
-    } else {
-      // Opening
-      setIsMenuOpen(true);
-      setTimeout(() => setIsDrawerVisible(true), 10); // Small delay for smooth animation
-    }
-  };
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  const toggleServices = () => setIsServicesOpen(!isServicesOpen);
 
-  const toggleServices = (e) => {
-    e.stopPropagation(); // Prevent event bubbling
-    setIsServicesOpen(!isServicesOpen);
-  };
-
-  // Close menu when clicking outside
-  const handleOverlayClick = (e) => {
-    if (e.target === e.currentTarget) {
-      toggleMenu();
-    }
-  };
-
-  // Close services dropdown when clicking outside of it
-  const handleServiceLinkClick = () => {
+  const closeMenu = () => {
     setIsMenuOpen(false);
-    setIsDrawerVisible(false);
     setIsServicesOpen(false);
   };
 
@@ -84,7 +60,6 @@ const Header = () => {
             <span className="absolute bottom-0 left-0 h-1 w-0 rounded-full bg-blue-500 transition-all duration-500 group-hover:w-full"></span>
           </Link>
 
-          {/* Dropdown Menu */}
           <ul
             className={`absolute left-0 top-full z-50 min-w-[270px] transform rounded-b-md bg-white p-2 shadow-lg transition-all duration-300 ${
               isServicesOpen
@@ -99,14 +74,14 @@ const Header = () => {
               <li key={service.path} className="relative">
                 <Link
                   to={service.path}
-                  className={`group relative block py-2 pl-4 pr-1 text-sm font-semibold transition-all duration-300 hover:pl-5  ${
+                  className={`group relative block py-2 pl-4 pr-1 text-sm font-semibold transition-all duration-300 hover:pl-5 ${
                     index < services.length - 1
                       ? "border-b border-gray-100"
                       : ""
                   }`}
                 >
-                  <div className="ml-4 ">{service.name}</div>
-                  <span className="absolute left-1 top-1/2 -translate-y-1/2 text-xs  opacity-0 transition-all duration-300 group-hover:left-2 group-hover:opacity-100">
+                  <div className="ml-4">{service.name}</div>
+                  <span className="absolute left-1 top-1/2 -translate-y-1/2 text-xs opacity-0 transition-all duration-300 group-hover:left-2 group-hover:opacity-100">
                     <ArrowRight width={18} height={18} />
                   </span>
                 </Link>
@@ -130,12 +105,61 @@ const Header = () => {
     );
   };
 
+  const renderMobileNavItem = (item) => {
+    if (item.hasDropdown) {
+      return (
+        <div key={item.path} className="border-b border-white">
+          <button
+            onClick={toggleServices}
+            className="flex w-full items-center justify-between px-4 py-3 text-left text-lg font-medium text-white hover:bg-blue-700 transition-colors"
+          >
+            {item.name}
+            <ChevronDown
+              className={`h-5 w-5 text-white transition-transform duration-200 ${
+                isServicesOpen ? "rotate-180" : ""
+              }`}
+            />
+          </button>
+          <div
+            className={`overflow-hidden transition-all duration-300 ease-in-out ${
+              isServicesOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+            }`}
+          >
+            <ul className="space-y-1 px-8 py-2">
+              {services.map((service) => (
+                <li key={service.path}>
+                  <Link
+                    to={service.path}
+                    className="block py-1 text-base hover:bg-blue-700 transition-colors"
+                    onClick={closeMenu}
+                  >
+                    <div className="text-white">{service.name}</div>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      );
+    }
+
+    return (
+      <Link
+        key={item.path}
+        to={item.path}
+        className="block py-3 px-4 text-lg font-medium text-white hover:bg-blue-700 transition-colors border-b"
+        onClick={closeMenu}
+      >
+        {item.name}
+      </Link>
+    );
+  };
+
   return (
     <>
       <header className="relative border-b border-gray-200 bg-white py-2 lg:py-0">
         <div className="container mx-auto max-w-[1200px] px-6">
           <div className="flex items-center">
-            {/* Logo Section */}
             <div className="w-1/3 md:w-1/4 xl:w-1/3">
               <div className="absolute top-0 z-50 rounded-b-lg bg-white p-2">
                 <Link to="/" className="inline-block">
@@ -150,9 +174,7 @@ const Header = () => {
               </div>
             </div>
 
-            {/* Navigation and Contact Section */}
             <div className="static flex w-2/3 justify-end md:w-3/4 lg:justify-between xl:w-2/3">
-              {/* Desktop Navigation */}
               <nav className="static hidden p-0 lg:block">
                 <div className="flex">
                   <ul className="flex items-center gap-6 capitalize">
@@ -161,9 +183,7 @@ const Header = () => {
                 </div>
               </nav>
 
-              {/* Contact Info and Mobile Menu */}
               <div className="flex items-center gap-3">
-                {/* Phone Contact */}
                 <div className="relative flex items-center gap-2 font-semibold">
                   <div className="flex h-10 w-10 items-center justify-center rounded-full border-4 border-white bg-gradient-to-b from-blue-500 to-blue-900 text-white shadow-lg">
                     <Phone className="h-4 w-4" />
@@ -181,7 +201,6 @@ const Header = () => {
                   </div>
                 </div>
 
-                {/* Mobile Menu Button */}
                 <button
                   className="bg-blue-800 p-1 rounded-lg block lg:hidden"
                   onClick={toggleMenu}
@@ -199,30 +218,16 @@ const Header = () => {
         </div>
       </header>
 
-      {/* Mobile Drawer Overlay */}
       {isMenuOpen && (
-        <div
-          className="fixed inset-0 z-50 lg:hidden"
-          onClick={handleOverlayClick}
-        >
-          {/* Semi-transparent overlay - reduced opacity */}
+        <div className="fixed inset-0 z-50 lg:hidden" onClick={closeMenu}>
+          <div className="absolute inset-0 bg-black bg-opacity-20 transition-opacity duration-300"></div>
           <div
-            className={`absolute inset-0  transition-opacity duration-300 ${
-              isDrawerVisible ? "bg-opacity-20" : "bg-opacity-0"
-            }`}
-          ></div>
-
-          {/* Drawer - with proper slide animation */}
-          <div
-            className={`absolute right-0 top-0 h-full w-80 max-w-[85vw] bg-blue-800 shadow-xl transition-transform duration-500 ease-in-out ${
-              isDrawerVisible ? "translate-x-0" : "translate-x-full"
-            }`}
+            className="absolute right-0 top-0 h-full w-80 max-w-[85vw] bg-blue-800 shadow-xl transition-transform duration-500 ease-in-out"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Drawer Header */}
             <div className="flex items-center p-4 justify-end">
               <button
-                onClick={toggleMenu}
+                onClick={closeMenu}
                 className="p-2 hover:bg-blue-700 transition-colors bg-blue-600 rounded-full"
                 aria-label="Close menu"
               >
@@ -230,80 +235,23 @@ const Header = () => {
               </button>
             </div>
 
-            {/* Drawer Content */}
-            <div className=" overflow-y-auto h-full">
+            <div className="overflow-y-auto h-full">
               <nav>
-                <ul>
-                  {navItems.map((item) => (
-                    <l key={item.path}>
-                      {item.hasDropdown ? (
-                        <div className="border-b border-white">
-                          <button
-                            onClick={toggleServices}
-                            className="flex  w-full items-center justify-between px-4 py-3 text-left text-lg font-medium text-white hover:bg-blue-700 transition-colors "
-                          >
-                            {item.name}
-                            <ChevronDown
-                              className={`h-5 w-5 text-white transition-transform duration-200 ${
-                                isServicesOpen ? "rotate-180" : ""
-                              }`}
-                            />
-                          </button>
-                          {/* Services submenu with smooth animation */}
-                          <div
-                            className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                              isServicesOpen
-                                ? "max-h-96 opacity-100"
-                                : "max-h-0 opacity-0"
-                            }`}
-                          >
-                            <ul className="space-y-1 px-8 py-2">
-                              {services.map((service) => (
-                                <li key={service.path}>
-                                  <Link
-                                    to={service.path}
-                                    className="block py-1 text-base hover:bg-blue-700 transition-colors"
-                                    onClick={handleServiceLinkClick}
-                                  >
-                                    <div className="text-white">
-                                      {service.name}
-                                    </div>
-                                  </Link>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                        </div>
-                      ) : (
-                        <Link
-                          to={item.path}
-                          className="block py-3 px-4 text-lg font-medium text-white hover:bg-blue-700  transition-colors border-b"
-                          onClick={() => {
-                            setIsDrawerVisible(false);
-                            setTimeout(() => setIsMenuOpen(false), 300);
-                          }}
-                        >
-                          {item.name}
-                        </Link>
-                      )}
-                    </l>
-                  ))}
-                </ul>
+                <ul>{navItems.map(renderMobileNavItem)}</ul>
               </nav>
 
-              {/* Contact Info in Drawer */}
               <div className="mt-8 ml-4">
                 <div className="flex items-center gap-3">
                   <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white text-blue-800">
                     <Phone className="h-5 w-5" />
                   </div>
                   <div>
-                    <p className="text-sm font-medium text-blue-200 ">
+                    <p className="text-sm font-medium text-blue-200">
                       Phone Number
                     </p>
                     <a
                       href="tel:0408635693"
-                      className="text-lg font-semibold text-white hover:text-blue-200 "
+                      className="text-lg font-semibold text-white hover:text-blue-200"
                     >
                       0408 635 693
                     </a>
