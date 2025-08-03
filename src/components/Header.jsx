@@ -168,7 +168,7 @@ const Header = () => {
                   <div className="flex h-10 w-10 items-center justify-center rounded-full border-4 border-white bg-gradient-to-b from-blue-500 to-blue-900 text-white shadow-lg">
                     <Phone className="h-4 w-4" />
                   </div>
-                  <div className="hidden flex-col gap-1 sm:flex">
+                  <div className="flex-col gap-1 sm:flex">
                     <strong className="block text-sm font-bold leading-4 text-black">
                       Phone Number
                     </strong>
@@ -240,7 +240,7 @@ const Header = () => {
                         <div className="border-b border-white">
                           <button
                             onClick={toggleServices}
-                            className="flex  w-full items-center justify-between px-4 py-3 text-left text-lg font-medium text-white hover:bg-blue-700 rounded-lg transition-colors "
+                            className="flex  w-full items-center justify-between px-4 py-3 text-left text-lg font-medium text-white hover:bg-blue-700 transition-colors "
                           >
                             {item.name}
                             <ChevronDown
