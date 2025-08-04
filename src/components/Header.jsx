@@ -172,7 +172,7 @@ const Header = () => {
 
   return (
     <>
-      <header className="relative border-b border-gray-200 bg-white py-2 lg:py-0">
+      <header className="relative border-b border-gray-200 bg-white py-2 lg:py-0 font-fira">
         <div className="container mx-auto max-w-[1200px] px-6">
           <div className="flex items-center">
             <div className="w-1/3 md:w-1/4 xl:w-1/3">
