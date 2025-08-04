@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import CEOPortrait from "../../assets/media/ceo.jpg";
 
 const AboutUsPage = () => {
   return (
@@ -30,6 +31,43 @@ const AboutUsPage = () => {
                   mission is to deliver exceptional security support that
                   enhances the safety of people, assets, and operations.
                 </p>
+
+                {/* CEO's Message Section */}
+                <div className="bg-blue-50 border-l-4 border-blue-600 p-6 rounded-lg my-8">
+                  <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+                    <div className="flex justify-center md:justify-start md:col-span-5">
+                      <img
+                        className="h-62 md:h-96 w-96 rounded-lg object-cover"
+                        src={CEOPortrait}
+                        alt="CEO Portrait"
+                      />
+                    </div>
+                    <div className="md:col-span-7">
+                      <h2 className="text-[28px] xl:text-[28px] lg:text-[24px] md:text-[22px] sm:text-[20px] text-black leading-[1.2] font-semibold mb-4">
+                        CEO's Message
+                      </h2>
+                      <p className="text-base leading-[1.6] mb-6 italic">
+                        "As the CEO of Bayok State Security Service, I am proud
+                        to lead a team of dedicated professionals who are
+                        committed to excellence in security services. Our
+                        journey began with a simple vision: to provide reliable,
+                        professional security solutions that our clients can
+                        trust completely."
+                      </p>
+                      <div className="mt-6">
+                        <p className="font-semibold text-blue-600 text-lg">
+                          John Davis
+                        </p>
+                        <p className="text-sm text-gray-600">
+                          Chief Executive Officer
+                        </p>
+                        <p className="text-sm text-gray-600">
+                          Bayok State Security Service
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
 
                 <h2 className="text-[32px] xl:text-[32px] lg:text-[28px] md:text-[24px] sm:text-[23px] text-black leading-[1.2] font-semibold mb-2 mt-0">
                   Our Core Services
