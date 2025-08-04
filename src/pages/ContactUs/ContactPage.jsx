@@ -7,6 +7,7 @@ import {
   PhoneCall,
   ClipboardList,
 } from "lucide-react";
+import heroImage from "../../assets/media/guard-image-contact-page.jpg";
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -34,14 +35,28 @@ const ContactPage = () => {
   return (
     <div className="bg-white">
       {/* Banner Section */}
-      <section
-        className="relative min-h-[230px] lg:min-h-[230px] bg-cover bg-top bg-no-repeat flex items-center justify-center"
-        style={{
-          backgroundImage:
-            "linear-gradient(180deg, rgba(0, 135, 239, 0.8) 0%, rgba(20, 24, 100, 0.8) 100%)",
-        }}
-      >
-        <div className="container mx-auto max-w-[1200px] px-6">
+      <section className="relative min-h-[230px] lg:min-h-[230px] bg-cover bg-center bg-no-repeat flex items-center justify-center">
+        {/* Gradient Overlay */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(180deg, rgba(0, 135, 239, 0.8) 0%, rgba(20, 24, 100, 0.8) 100%)",
+            zIndex: 1,
+          }}
+        />
+
+        {/* Background Image Layer */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: `url(${heroImage})`,
+            zIndex: 0,
+          }}
+        />
+
+        {/* Content */}
+        <div className="relative z-10 container mx-auto max-w-[1200px] px-6">
           <h1 className="text-white font-bold text-[38px] lg:text-[38px] md:text-[32px] sm:text-[28px] xs:text-[26px] tracking-[2px] leading-[1.2]">
             Contact Us
           </h1>
