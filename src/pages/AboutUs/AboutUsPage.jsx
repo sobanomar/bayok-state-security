@@ -52,7 +52,13 @@ const AboutUsPage = () => {
                         committed to excellence in security services. Our
                         journey began with a simple vision: to provide reliable,
                         professional security solutions that our clients can
-                        trust completely."
+                        trust completely. <br /> Over the years, we have built
+                        our reputation on three core principles: reliability,
+                        professionalism, and innovation. Every member of our
+                        team understands that when you choose Bayok State
+                        Security, you're not just hiring a security service –
+                        you're partnering with a team that treats your safety as
+                        our personal responsibility."
                       </p>
                       <div className="mt-6">
                         <p className="font-semibold text-blue-600 text-lg">
