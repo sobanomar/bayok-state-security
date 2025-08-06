@@ -184,7 +184,7 @@ const Header = () => {
         aria-label={item.ariaLabel}
         target="_blank"
         rel="noopener noreferrer"
-        className="w-8 h-8 bg-white text-blue-900 flex items-center justify-center transition-all duration-300 rounded border-b-4 border-blue-900 hover:bg-blue-900"
+        className="w-8 h-8 bg-white text-blue-900 flex items-center justify-center transition-all duration-300 rounded border-b-4 border-blue-900 "
       >
         {item.icon}
       </a>
