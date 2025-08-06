@@ -78,7 +78,7 @@ const TestimonialSection = () => {
 
   return (
     <section
-      className="relative py-12 sm:py-16"
+      className="relative my-12 py-12 sm:py-16"
       style={{
         backgroundImage: `url(${TestimonialImage})`,
         backgroundSize: "cover",
@@ -153,7 +153,7 @@ const TestimonialSection = () => {
         </div>
         <button
           onClick={goToPrev}
-          className="absolute hidden sm:flex items-center justify-center hover:bg-blue-500 hover:text-white border-2 rounded-full transition-all duration-300"
+          className="absolute hidden sm:flex items-center cursor-pointer justify-center hover:bg-blue-500 hover:text-white border-2 rounded-full transition-all duration-300"
           style={{
             width: "50px",
             height: "50px",
@@ -172,7 +172,7 @@ const TestimonialSection = () => {
 
         <button
           onClick={goToNext}
-          className="absolute hidden sm:flex items-center justify-center hover:bg-blue-500 hover:text-white border-2 rounded-full transition-all duration-300"
+          className="absolute hidden sm:flex items-center cursor-pointer justify-center hover:bg-blue-500 hover:text-white border-2 rounded-full transition-all duration-300"
           style={{
             width: "50px",
             height: "50px",

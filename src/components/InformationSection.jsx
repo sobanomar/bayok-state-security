@@ -2,7 +2,7 @@ import React from "react";
 
 const InformationSection = ({ img, paragraph, heading }) => {
   return (
-    <section className="mb-12 sm:mb-16">
+    <section className="my-12 sm:mt-20">
       <div className="w-full max-w-[1200px] mx-auto px-4 sm:px-6">
         <div className="flex flex-col lg:flex-row items-center gap-8">
           <div className="w-full px-4 sm:px-6 lg:px-8">

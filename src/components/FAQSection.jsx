@@ -22,7 +22,7 @@ const FAQSection = ({ faqs }) => {
   }, [faqs]);
 
   return (
-    <section className="py-12 sm:py-16">
+    <section className="pb-12 sm:py-16">
       <div className="w-full max-w-[1200px] mx-auto px-4 sm:px-6">
         <div className="flex justify-center">
           <div className="w-full max-w-4xl">

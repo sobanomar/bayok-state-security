@@ -79,7 +79,7 @@ const AboutSection = ({ mainImg, heading, subHeading, serviceDetails }) => {
                   backgroundColor: "rgba(240, 243, 246, 0.9)",
                 }}
               >
-                {serviceDetails.map((item, index) => (
+                {serviceDetails?.map((item, index) => (
                   <li key={index} className="flex items-start">
                     <div
                       className="flex items-center justify-center flex-shrink-0"
@@ -99,7 +99,7 @@ const AboutSection = ({ mainImg, heading, subHeading, serviceDetails }) => {
                           transform: "rotate(-45deg)",
                         }}
                       >
-                        <img src={item.icon} />
+                        <img src={item?.icon} />
                       </div>
                     </div>
                     <div className="pl-4 sm:pl-6">
@@ -107,7 +107,7 @@ const AboutSection = ({ mainImg, heading, subHeading, serviceDetails }) => {
                         {item.title}
                       </h3>
                       <p className="mb-0 text-sm sm:text-base">
-                        {item.description}
+                        {item?.description}
                       </p>
                     </div>
                   </li>

@@ -5,11 +5,13 @@ const WhyChooseUs = ({ heading, subHeading, detailsList, mainImg }) => {
     <section className="relative mb-12 sm:mb-16">
       <div className="flex flex-col lg:flex-row ">
         <div className="w-full lg:w-1/2 relative mb-8 lg:mb-0 ">
-          <img
-            className="h-full object-cover md:rounded-br-lg"
-            src={mainImg}
-            alt={heading}
-          />
+          {mainImg && (
+            <img
+              className="h-full object-cover md:rounded-r-lg"
+              src={mainImg}
+              alt={heading}
+            />
+          )}
           <span
             className="hidden lg:block font-medium text-white text-center absolute rounded-lg"
             style={{
