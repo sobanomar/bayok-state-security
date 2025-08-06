@@ -46,7 +46,7 @@ const InformationSection = ({ img, paragraph, heading, bulletPoints }) => {
                 {paragraph}
               </p>
               <ol style={{ listStyleType: "decimal", paddingLeft: "20px" }}>
-                {bulletPoints.map((item, index) => (
+                {bulletPoints?.map((item, index) => (
                   <li key={index}>{item}</li>
                 ))}
               </ol>
