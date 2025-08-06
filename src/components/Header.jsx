@@ -256,7 +256,7 @@ const Header = () => {
 
       {isMenuOpen && (
         <div className="fixed inset-0 z-50 lg:hidden" onClick={closeMenu}>
-          <div className="absolute inset-0 bg-black bg-opacity-50 transition-opacity duration-300"></div>
+          <div className="absolute inset-0 bg-opacity-50 transition-opacity duration-300"></div>
           <div
             className={`absolute right-0 top-0 h-full w-80 max-w-[85vw] bg-blue-800 shadow-xl transform transition-transform duration-500 ease-in-out ${
               isDrawerVisible ? "translate-x-0" : "translate-x-full"
