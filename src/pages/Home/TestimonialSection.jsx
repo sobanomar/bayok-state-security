@@ -10,7 +10,7 @@ const testimonials = [
   },
   {
     text: "Their team provided exceptional service during our event. The security presence was both reassuring and effective, helping everything run smoothly.",
-    author: "Sarah m.",
+    author: "Sarah M.",
   },
   {
     text: "We’ve relied on Bayok State Security for our construction sites, and they’ve consistently delivered outstanding protection. Their proactive approach has prevented several incidents.",
@@ -26,9 +26,10 @@ const extendedTestimonials = [
 ];
 
 const TestimonialSection = () => {
-  const [index, setIndex] = useState(0); // Start from the first real slide
+  const [index, setIndex] = useState(1);
   const [isAnimating, setIsAnimating] = useState(true);
   const timeoutRef = useRef(null);
+  const containerRef = useRef(null);
 
   // Auto slide every 6s
   useEffect(() => {
@@ -38,30 +39,42 @@ const TestimonialSection = () => {
     return () => clearTimeout(timeoutRef.current);
   }, [index]);
 
-  // Handle seamless looping
-  useEffect(() => {
-    if (index === 0) {
-      setTimeout(() => {
-        setIsAnimating(false);
-        setIndex(testimonials.length);
-      }, 500);
-    } else if (index === testimonials.length + 1) {
-      setTimeout(() => {
-        setIsAnimating(false);
-        setIndex(1);
-      }, 500);
-    } else {
-      setIsAnimating(true);
+  const handleTransitionEnd = () => {
+    // If we've reached the cloned first slide, jump back to the real first slide.
+    if (index === extendedTestimonials.length - 1) {
+      setIsAnimating(false);
+      setIndex(1);
     }
-  }, [index]);
+    // If we've reached the cloned last slide, jump back to the real last slide.
+    if (index === 0) {
+      setIsAnimating(false);
+      setIndex(testimonials.length);
+    }
+  };
 
   const goToPrev = () => {
-    setIndex((prev) => prev - 1);
+    if (isAnimating) {
+      setIsAnimating(true);
+      setIndex((prev) => prev - 1);
+    }
   };
 
   const goToNext = () => {
-    setIndex((prev) => prev + 1);
+    if (isAnimating) {
+      setIsAnimating(true);
+      setIndex((prev) => prev + 1);
+    }
   };
+
+  // Re-enable animation for user clicks after a jump
+  useEffect(() => {
+    if (!isAnimating) {
+      const timeout = setTimeout(() => {
+        setIsAnimating(true);
+      }, 50);
+      return () => clearTimeout(timeout);
+    }
+  }, [isAnimating]);
 
   return (
     <section
@@ -70,7 +83,6 @@ const TestimonialSection = () => {
         backgroundImage: `url(${TestimonialImage})`,
         backgroundSize: "cover",
         backgroundPosition: "center 0",
-        backgroundAttachment: "fixed",
       }}
     >
       <div
@@ -81,7 +93,9 @@ const TestimonialSection = () => {
       <div className="relative z-10 w-full max-w-[1200px] mx-auto px-4 sm:px-6">
         <div className="overflow-hidden relative md:mx-10 pt-8">
           <div
-            className="flex transition-transform duration-500 ease-in-out "
+            ref={containerRef}
+            onTransitionEnd={handleTransitionEnd}
+            className="flex transition-transform ease-in-out"
             style={{
               transform: `translateX(-${
                 index * (100 / extendedTestimonials.length)
