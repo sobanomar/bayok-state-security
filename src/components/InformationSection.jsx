@@ -1,6 +1,6 @@
 import React from "react";
 
-const InformationSection = ({ img, paragraph, heading }) => {
+const InformationSection = ({ img, paragraph, heading, bulletPoints }) => {
   return (
     <section className="my-12 sm:mt-20">
       <div className="w-full max-w-[1200px] mx-auto px-4 sm:px-6">
@@ -45,6 +45,11 @@ const InformationSection = ({ img, paragraph, heading }) => {
               >
                 {paragraph}
               </p>
+              <ol style={{ listStyleType: "decimal", paddingLeft: "20px" }}>
+                {bulletPoints.map((item, index) => (
+                  <li key={index}>{item}</li>
+                ))}
+              </ol>
             </div>
           </div>
         </div>
