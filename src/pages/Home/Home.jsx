@@ -1,10 +1,12 @@
 import React from "react";
 import StaticHTML from "../../components/StaticHTML";
+import HomePage from "./HomePage";
 
 const Home = () => {
   return (
     <div>
-      <StaticHTML path="/Home.html" />
+      <HomePage />
+      {/* <StaticHTML path="/Home.html" /> */}
     </div>
   );
 };

@@ -63,16 +63,19 @@ const Header = () => {
   const renderNavItem = (item) => {
     if (item.hasDropdown) {
       return (
-        <li key={item.path} className="group relative">
+        <li
+          key={item.path}
+          className="group relative text-blue-900  hover:text-blue-600"
+        >
           <Link
             to={item.path}
-            className="group relative flex items-center gap-1 py-6 text-[17px] font-medium text-blue-600 transition-colors duration-300 hover:text-blue-500"
+            className="group relative flex items-center gap-1 py-6 text-[17px] font-medium transition-colors duration-300 "
             onMouseEnter={() => setIsServicesOpen(true)}
             onMouseLeave={() => setIsServicesOpen(false)}
           >
             {item.name}
-            <ChevronDown className="h-5 w-5 text-blue-600" />
-            <span className="absolute bottom-0 left-0 h-1 w-0 rounded-full bg-blue-500 transition-all duration-500 group-hover:w-full"></span>
+            <ChevronDown className="h-5 w-5 " />
+            <span className="absolute bottom-0 left-0 h-1 w-0 rounded-full transition-all duration-500 group-hover:w-full"></span>
           </Link>
 
           <ul
@@ -108,13 +111,16 @@ const Header = () => {
     }
 
     return (
-      <li key={item.path} className="relative">
+      <li
+        key={item.path}
+        className="relative text-blue-900  hover:text-blue-600"
+      >
         <Link
           to={item.path}
-          className="group relative block py-6 text-[17px] font-medium text-blue-600 transition-colors duration-300 hover:text-blue-500"
+          className="group relative block py-6 text-[17px] font-medium  transition-colors duration-300 "
         >
           {item.name}
-          <span className="absolute bottom-0 left-0 h-1 w-0 rounded-full bg-blue-500 transition-all duration-500 group-hover:w-full"></span>
+          <span className="absolute bottom-0 left-0 h-1 w-0 rounded-full  transition-all duration-500 group-hover:w-full"></span>
         </Link>
       </li>
     );
