@@ -16,6 +16,8 @@ import AdvancedTechnologyAndTools from "../../assets/media/HomeImages/advanced_t
 import ExperiencedAndTrainedProfessionals from "../../assets/media/HomeImages/experienced_and_trained_professionals_2.png";
 import CustomizedSecuritySolutions from "../../assets/media/HomeImages/customized_security_solutions_2.png";
 import WhyChooseOurSecurityServices from "../../assets/media/HomeImages/why_choose_our_security_services_2.webp";
+import InformationSection from "../../components/InformationSection";
+import PerthSecurityGuards from "../../assets/media/HomeImages/perth_security_guards_2.webp";
 
 const HomePage = () => {
   const aboutSectionList = [
@@ -114,8 +116,13 @@ const HomePage = () => {
         }
         detailsList={whyChooseUsList}
       />
-
-      <HowWeEnhanceSecurity />
+      <InformationSection
+        img={PerthSecurityGuards}
+        heading={"How Our Security Guards Can Enhance Your Safety?"}
+        paragraph={
+          "Our Perth security guards are highly trained to handle a wide range of security concerns, making a significant difference in maintaining the safety and security of your property. From patrolling large commercial sites to monitoring small residential spaces. In addition to their physical presence, our security guards are equipped with advanced technology to enhance their effectiveness. With real-time reporting, surveillance monitoring, and communication systems, they can keep track of activities across your premises and address issues as they arise. Whether it's managing crowd control at an event or securing high-risk areas, our security guards operate with a high level of professionalism and attention to detail."
+        }
+      />
 
       <TestimonialSection />
 
