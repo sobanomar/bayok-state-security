@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ChevronDown, Phone, Menu, X, ArrowRight } from "lucide-react";
 import BayokLogo from "../assets/media/bayok-logo.jpeg";
@@ -7,6 +7,25 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isDrawerVisible, setIsDrawerVisible] = useState(false);
+
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = "hidden";
+      document.body.style.paddingRight = `${
+        window.innerWidth - document.documentElement.clientWidth
+      }px`;
+    } else {
+      document.body.style.overflow = "";
+      document.body.style.paddingRight = "";
+    }
+
+    // Cleanup function to reset styles when component unmounts or effect changes
+    return () => {
+      document.body.style.overflow = "";
+      document.body.style.paddingRight = "";
+    };
+  }, [isMenuOpen]);
 
   const toggleMenu = () => {
     if (isMenuOpen) {
@@ -237,7 +256,7 @@ const Header = () => {
 
       {isMenuOpen && (
         <div className="fixed inset-0 z-50 lg:hidden" onClick={closeMenu}>
-          <div className="absolute inset-0 bg-opacity-20 transition-opacity duration-300"></div>
+          <div className="absolute inset-0 bg-black bg-opacity-50 transition-opacity duration-300"></div>
           <div
             className={`absolute right-0 top-0 h-full w-80 max-w-[85vw] bg-blue-800 shadow-xl transform transition-transform duration-500 ease-in-out ${
               isDrawerVisible ? "translate-x-0" : "translate-x-full"
@@ -254,12 +273,12 @@ const Header = () => {
               </button>
             </div>
 
-            <div className="overflow-y-auto h-full relative">
+            <div className="overflow-y-auto h-full relative pb-32">
               <nav>
                 <ul>{navItems.map(renderMobileNavItem)}</ul>
               </nav>
 
-              <div className="mt-8 ml-4 absolute bottom-20">
+              <div className="mt-8 ml-4 absolute bottom-24">
                 <div className="flex items-center gap-3">
                   <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white text-blue-800">
                     <Phone className="h-5 w-5" />
