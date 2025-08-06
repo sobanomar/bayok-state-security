@@ -254,12 +254,12 @@ const Header = () => {
               </button>
             </div>
 
-            <div className="overflow-y-auto h-full">
+            <div className="overflow-y-auto h-full relative">
               <nav>
                 <ul>{navItems.map(renderMobileNavItem)}</ul>
               </nav>
 
-              <div className="mt-8 ml-4">
+              <div className="mt-8 ml-4 absolute bottom-20">
                 <div className="flex items-center gap-3">
                   <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white text-blue-800">
                     <Phone className="h-5 w-5" />
