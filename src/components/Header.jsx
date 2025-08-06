@@ -71,6 +71,38 @@ const Header = () => {
       name: "Gatehouse Security Services",
     },
   ];
+  const socialLinks = [
+    {
+      href: "https://www.facebook.com/",
+      ariaLabel: "facebook",
+      icon: (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          fill="#1e3a8a"
+          viewBox="0 0 320 512"
+        >
+          <path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"></path>
+        </svg>
+      ),
+    },
+    {
+      href: "https://www.pinterest.com/",
+      ariaLabel: "pinterest",
+      icon: (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          fill="#1e3a8a"
+          viewBox="0 0 384 512"
+        >
+          <path d="M204 6.5C101.4 6.5 0 74.9 0 185.6 0 256 39.6 296 63.6 296c9.9 0 15.6-27.6 15.6-35.4 0-9.3-23.7-29.1-23.7-67.8 0-80.4 61.2-137.4 140.4-137.4 68.1 0 118.5 38.7 118.5 109.8 0 53.1-21.3 152.7-90.3 152.7-24.9 0-46.2-18-46.2-43.8 0-37.8 26.4-74.4 26.4-113.4 0-66.2-93.9-54.2-93.9 25.8 0 16.8 2.1 35.4 9.6 50.7-13.8 59.4-42 147.9-42 209.1 0 18.9 2.7 37.5 4.5 56.4 3.4 3.8 1.7 3.4 6.9 1.5 50.4-69 48.6-82.5 71.4-172.8 12.3 23.4 44.1 36 69.3 36 106.2 0 153.9-103.5 153.9-196.8C384 71.3 298.2 6.5 204 6.5z"></path>
+        </svg>
+      ),
+    },
+  ];
 
   const navItems = [
     { path: "/", name: "Home" },
@@ -144,6 +176,20 @@ const Header = () => {
       </li>
     );
   };
+
+  const renderSocialLink = (item) => (
+    <li key={item.href}>
+      <a
+        href={item.href}
+        aria-label={item.ariaLabel}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="w-8 h-8 bg-white text-blue-900 flex items-center justify-center transition-all duration-300 rounded border-b-4 border-blue-900 hover:bg-blue-900"
+      >
+        {item.icon}
+      </a>
+    </li>
+  );
 
   const renderMobileNavItem = (item) => {
     if (item.hasDropdown) {
@@ -278,7 +324,7 @@ const Header = () => {
                 <ul>{navItems.map(renderMobileNavItem)}</ul>
               </nav>
 
-              <div className="mt-8 ml-4 absolute bottom-24">
+              <div className="mt-8 ml-4 absolute bottom-24 gap-4 flex flex-col">
                 <div className="flex items-center gap-3">
                   <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white text-blue-800">
                     <Phone className="h-5 w-5" />
@@ -295,6 +341,9 @@ const Header = () => {
                     </a>
                   </div>
                 </div>
+                <ul className="list-none flex flex-wrap md:flex-nowrap mb-0 gap-[7px]">
+                  {socialLinks.map(renderSocialLink)}
+                </ul>
               </div>
             </div>
           </div>
