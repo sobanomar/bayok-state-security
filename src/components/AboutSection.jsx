@@ -1,30 +1,24 @@
 import React from "react";
 
-import CustomerSafety from "../../assets/media/HomeImages/customer-safety.png";
-import MonitoringOfPremises from "../../assets/media/HomeImages/monitoring-of-premises.png";
-import RapidResponseSecurity from "../../assets/media/HomeImages/rapid-response-security.png";
-import CrimePrevention from "../../assets/media/HomeImages/crime-prevention.png";
-import SecurityGuardsPerthImage from "../../assets/media/HomeImages/security_guards_perth_1.webp";
-
-const AboutSection = () => {
+const AboutSection = ({ mainImg, heading, subHeading, serviceDetails }) => {
   return (
     <section className="relative mb-12 sm:mb-16">
       <div className="w-full max-w-[1200px] mx-auto px-4 sm:px-6">
         <div className="flex flex-col lg:flex-row justify-start gap-4 lg:gap-6">
           <div className="w-full lg:w-1/2">
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col-reverse gap-4 lg:flex-col">
               <div className="img-holder">
                 <div className="w-full bg-gray-200 flex items-center justify-center text-gray-600 rounded-lg">
                   <img
-                    src={SecurityGuardsPerthImage}
+                    src={mainImg}
                     alt="SecurityGuardsPerthImage"
-                    className="rounded-lg object-cover"
+                    className="rounded-lg object-cover w-full"
                   />
                 </div>
               </div>
               <div>
                 <h2
-                  className="font-semibold text-center relative text-xl sm:text-2xl lg:text-3xl"
+                  className="font-semibold text-center relative text-xl sm:text-2xl lg:text-3xl "
                   style={{
                     lineHeight: "1.2",
                     paddingBottom: "20px",
@@ -32,7 +26,7 @@ const AboutSection = () => {
                     color: "#000000",
                   }}
                 >
-                  Benefits of Security Guards Perth Services
+                  {heading}
                   <div
                     className="absolute"
                     style={{
@@ -63,14 +57,11 @@ const AboutSection = () => {
                 <p
                   className="text-base sm:text-lg text-center lg:text-left"
                   style={{
-                    marginBottom: "35px",
                     lineHeight: "1.6",
                     color: "#5a5a5a",
                   }}
                 >
-                  Hiring professional security guards in Perth ensures safety
-                  and peace of mind for both businesses and residential
-                  properties.
+                  {subHeading}
                 </p>
               </div>
             </div>
@@ -88,32 +79,7 @@ const AboutSection = () => {
                   backgroundColor: "rgba(240, 243, 246, 0.9)",
                 }}
               >
-                {[
-                  {
-                    title: "Crime Prevention and Deterrence",
-                    description:
-                      "Having trained security guards on-site acts as a visible deterrent to potential criminals, reducing the chances of theft, vandalism, and other criminal activities.",
-                    icon: CrimePrevention,
-                  },
-                  {
-                    title: "Rapid Response to Emergencies",
-                    description:
-                      "Security guards are trained to respond quickly and effectively in emergency situations, ensuring the safety of people and property until law enforcement or emergency services arrive.",
-                    icon: RapidResponseSecurity,
-                  },
-                  {
-                    title: "Enhanced Customer Safety",
-                    description:
-                      "In addition to protecting property, security guards provide a reassuring presence, ensuring customers and visitors feel safe and secure in any environment.",
-                    icon: CustomerSafety,
-                  },
-                  {
-                    title: "Professional Monitoring of Premises",
-                    description:
-                      "Security guards continuously monitor entrances, exits, and high-risk areas, ensuring any suspicious activities are identified and addressed before they escalate.",
-                    icon: MonitoringOfPremises,
-                  },
-                ].map((item, index) => (
+                {serviceDetails.map((item, index) => (
                   <li key={index} className="flex items-start">
                     <div
                       className="flex items-center justify-center flex-shrink-0"
