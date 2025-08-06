@@ -1,12 +1,26 @@
 import { Plus } from "lucide-react";
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 
-const FAQSection = () => {
+const FAQSection = ({ faqs }) => {
   const [activeAccordion, setActiveAccordion] = useState(null);
+  const [heights, setHeights] = useState({});
+  const contentRefs = useRef({});
 
   const toggleAccordion = (index) => {
     setActiveAccordion(activeAccordion === index ? null : index);
   };
+
+  useEffect(() => {
+    // Calculate heights for all FAQ items
+    const newHeights = {};
+    Object.keys(contentRefs.current).forEach((index) => {
+      if (contentRefs.current[index]) {
+        newHeights[index] = contentRefs.current[index].scrollHeight;
+      }
+    });
+    setHeights(newHeights);
+  }, [faqs]);
+
   return (
     <section className="py-12 sm:py-16">
       <div className="w-full max-w-[1200px] mx-auto px-4 sm:px-6">
@@ -16,22 +30,10 @@ const FAQSection = () => {
               <h2 className="text-center mb-6 sm:mb-8 font-semibold text-xl sm:text-2xl lg:text-3xl">
                 FAQ
               </h2>
-              {[
-                {
-                  question:
-                    "How do I find a reliable security service company near me?",
-                  answer:
-                    "To find a reliable security service company, research local providers, check their licensing and certifications, read customer reviews, and request quotes from multiple companies to compare services and pricing.",
-                },
-                {
-                  question: "Are your security guards trained for emergencies?",
-                  answer:
-                    "Yes, all our security guards undergo comprehensive emergency response training, including first aid, evacuation procedures, and crisis management to ensure they can handle any situation effectively.",
-                },
-              ].map((faq, index) => (
+              {faqs.map((faq, index) => (
                 <div
                   key={index}
-                  className="relative mb-4"
+                  className="relative mb-4 transition-all duration-300 ease-in-out hover:shadow-lg"
                   style={{
                     border: "none",
                     borderRadius: "11px",
@@ -42,14 +44,15 @@ const FAQSection = () => {
                 >
                   <h3 className="mb-0">
                     <button
-                      className="w-full text-left flex items-center justify-between border-none overflow-hidden focus:shadow-none p-3 sm:p-4"
+                      className="w-full text-left flex items-center justify-between border-none overflow-hidden focus:shadow-none p-3 sm:p-4 transition-colors duration-200 hover:bg-white/30 rounded-t-[11px]"
                       style={{
                         color: "#1b1464",
                         background: "transparent",
                         fontSize: "14px",
                         boxShadow: "none",
                         fontWeight: "500",
-                        borderRadius: "0",
+                        borderRadius:
+                          activeAccordion === index ? "11px 11px 0 0" : "11px",
                       }}
                       onClick={() => toggleAccordion(index)}
                       aria-expanded={activeAccordion === index}
@@ -65,16 +68,30 @@ const FAQSection = () => {
                       />
                     </button>
                   </h3>
-                  {activeAccordion === index && (
-                    <div className="px-3 sm:px-4 pb-4">
+
+                  {/* Animated content container */}
+                  <div
+                    className="overflow-hidden transition-all duration-300 ease-in-out"
+                    style={{
+                      maxHeight:
+                        activeAccordion === index
+                          ? `${heights[index] || 0}px`
+                          : "0px",
+                      opacity: activeAccordion === index ? 1 : 0,
+                    }}
+                  >
+                    <div
+                      ref={(el) => (contentRefs.current[index] = el)}
+                      className="px-3 sm:px-4 pb-4"
+                    >
                       <div
-                        className="pt-2 text-sm sm:text-base"
+                        className="pt-2 text-sm sm:text-base leading-relaxed"
                         style={{ color: "#5a5a5a" }}
                       >
                         {faq.answer}
                       </div>
                     </div>
-                  )}
+                  </div>
                 </div>
               ))}
             </div>

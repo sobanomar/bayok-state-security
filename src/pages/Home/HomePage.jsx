@@ -1,7 +1,9 @@
 import React from "react";
-import HowWeEnhanceSecurity from "./HowWeEnhanceSecurity";
+import FAQSection from "../../components/FAQSection";
 import TestimonialSection from "./TestimonialSection";
-import FAQSection from "./FAQSection";
+import AboutSection from "../../components/AboutSection";
+import WhyChooseUs from "../../components/WhyChooseUs";
+import InformationSection from "../../components/InformationSection";
 import ServicesSection from "../../components/ServicesSection";
 import HeroImage from "../../assets/media/HomeImages/hero_image.webp";
 import HeroBanner from "../../components/HeroBanner";
@@ -10,13 +12,10 @@ import MonitoringOfPremises from "../../assets/media/HomeImages/monitoring-of-pr
 import RapidResponseSecurity from "../../assets/media/HomeImages/rapid-response-security.png";
 import CrimePrevention from "../../assets/media/HomeImages/crime-prevention.png";
 import SecurityGuardsPerthImage from "../../assets/media/HomeImages/security_guards_perth_1.webp";
-import AboutSection from "../../components/AboutSection";
-import WhyChooseUs from "../../components/WhyChooseUs";
 import AdvancedTechnologyAndTools from "../../assets/media/HomeImages/advanced_technology_and_tools_2.png";
 import ExperiencedAndTrainedProfessionals from "../../assets/media/HomeImages/experienced_and_trained_professionals_2.png";
 import CustomizedSecuritySolutions from "../../assets/media/HomeImages/customized_security_solutions_2.png";
 import WhyChooseOurSecurityServices from "../../assets/media/HomeImages/why_choose_our_security_services_2.webp";
-import InformationSection from "../../components/InformationSection";
 import PerthSecurityGuards from "../../assets/media/HomeImages/perth_security_guards_2.webp";
 
 const HomePage = () => {
@@ -78,6 +77,19 @@ const HomePage = () => {
     },
   ];
 
+  const homeFAQs = [
+    {
+      question: "How do I find a reliable security service company near me?",
+      answer:
+        "To find a reliable security service company, research local providers, check their licensing and certifications, read customer reviews, and request quotes from multiple companies to compare services and pricing.",
+    },
+    {
+      question: "Are your security guards trained for emergencies?",
+      answer:
+        "Yes, all our security guards undergo comprehensive emergency response training, including first aid, evacuation procedures, and crisis management to ensure they can handle any situation effectively.",
+    },
+  ];
+
   return (
     <div
       style={{
@@ -126,7 +138,7 @@ const HomePage = () => {
 
       <TestimonialSection />
 
-      <FAQSection />
+      <FAQSection faqs={homeFAQs} />
     </div>
   );
 };
