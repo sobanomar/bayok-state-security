@@ -4,7 +4,11 @@ import ContactPage from "./ContactPage";
 
 const ContactUs = () => {
   return (
-    <div>
+    <div
+      style={{
+        fontFamily: '"Fira Sans", sans-serif',
+      }}
+    >
       {/* <StaticHTML path="/ContactUs.html" /> */}
       <ContactPage />
     </div>

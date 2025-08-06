@@ -242,7 +242,11 @@ const Header = () => {
   };
 
   return (
-    <>
+    <div
+      style={{
+        fontFamily: '"Fira Sans", sans-serif',
+      }}
+    >
       <header className="relative border-b border-gray-200 bg-white py-2 lg:py-0 font-fira">
         <div className="container mx-auto max-w-[1200px] px-6">
           <div className="flex items-center">
@@ -349,7 +353,7 @@ const Header = () => {
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 };
 

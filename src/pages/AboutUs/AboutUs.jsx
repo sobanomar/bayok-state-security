@@ -4,7 +4,11 @@ import AboutUsPage from "./AboutUsPage";
 
 const AboutUs = () => {
   return (
-    <div>
+    <div
+      style={{
+        fontFamily: '"Fira Sans", sans-serif',
+      }}
+    >
       {/* <StaticHTML path="/AboutUs.html" /> */}
       <AboutUsPage />
     </div>

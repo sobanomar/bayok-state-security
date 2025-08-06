@@ -1,9 +1,9 @@
 import React from "react";
-import GateHouseSecurityServicesImage from "../../assets/media/HomeImages/gate_house_security_services_2.webp";
-import MineSiteSecurityImage from "../../assets/media/HomeImages/mine_site_security_2.webp";
-import SecurityPatrolServicesImage from "../../assets/media/HomeImages/mobile_patrol_2.webp";
-import AlarmResponseServicesImage from "../../assets/media/HomeImages/alarm_response_2.webp";
-import ConstructionSiteSecurityImage from "../../assets/media/HomeImages/construction_site_security_2.webp";
+import GateHouseSecurityServicesImage from "../assets/media/HomeImages/gate_house_security_services_2.webp";
+import MineSiteSecurityImage from "../assets/media/HomeImages/mine_site_security_2.webp";
+import SecurityPatrolServicesImage from "../assets/media/HomeImages/mobile_patrol_2.webp";
+import AlarmResponseServicesImage from "../assets/media/HomeImages/alarm_response_2.webp";
+import ConstructionSiteSecurityImage from "../assets/media/HomeImages/construction_site_security_2.webp";
 import { Link } from "react-router-dom";
 
 const gateHouseIcon = (
@@ -133,7 +133,7 @@ const ConstructionSite = (
   </svg>
 );
 
-const ServicesSection = () => {
+const ServicesSection = ({ heading, subHeading }) => {
   return (
     <section
       className="py-12 sm:py-16"
@@ -154,7 +154,7 @@ const ServicesSection = () => {
                   color: "#000000",
                 }}
               >
-                Types of Security Services
+                {heading}
                 <div
                   className="absolute"
                   style={{
@@ -182,18 +182,18 @@ const ServicesSection = () => {
                   }}
                 ></div>
               </h2>
-              <p
-                className="text-base sm:text-lg"
-                style={{
-                  color: "#5a5a5a",
-                  marginBottom: "35px",
-                  lineHeight: "1.6",
-                }}
-              >
-                Bayok State Security Service provides a wide range of
-                specialized security solutions tailored to meet the needs of
-                various industries in Perth
-              </p>
+              {subHeading && (
+                <p
+                  className="text-base sm:text-lg"
+                  style={{
+                    color: "#5a5a5a",
+                    marginBottom: "35px",
+                    lineHeight: "1.6",
+                  }}
+                >
+                  {subHeading}
+                </p>
+              )}
             </div>
           </div>
         </div>
