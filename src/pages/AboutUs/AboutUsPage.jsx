@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import CEOPortrait from "../../assets/media/ceo.jpg";
+import CEOPortrait from "../../assets/media/coe_image.png";
 
 const AboutUsPage = () => {
   return (
@@ -48,21 +48,20 @@ const AboutUsPage = () => {
                       </h2>
                       <p className="text-base leading-[1.6] mb-6 italic">
                         "As the CEO of Bayok State Security Service, I am proud
-                        to lead a team of dedicated professionals who are
-                        committed to excellence in security services. Our
-                        journey began with a simple vision: to provide reliable,
-                        professional security solutions that our clients can
-                        trust completely. <br /> Over the years, we have built
-                        our reputation on three core principles: reliability,
-                        professionalism, and innovation. Every member of our
-                        team understands that when you choose Bayok State
-                        Security, you're not just hiring a security service –
-                        you're partnering with a team that treats your safety as
-                        our personal responsibility."
+                        to lead a team dedicated to delivering reliable,
+                        professional, and innovative security solutions our
+                        clients can trust. Our journey began with a vision to
+                        make safety a personal responsibility we share with
+                        every client. Born on 08/05/1985 in Dubai, Sudan, I hold
+                        a Bachelor of Business Management from MIT – Melbourne
+                        Institute of Technology, graduating on 10 December 2019.
+                        With this foundation, I remain committed to guiding our
+                        team in setting the highest standards in the security
+                        industry."
                       </p>
                       <div className="mt-6">
                         <p className="font-semibold text-blue-600 text-lg">
-                          John Davis
+                          Christopher Bayok
                         </p>
                         <p className="text-sm text-gray-600">
                           Chief Executive Officer
