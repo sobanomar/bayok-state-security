@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import CEOPortrait from "../../assets/media/coe_image.png";
+import BusinessCard from "../../assets/business_card.pdf";
 
 const AboutUsPage = () => {
   return (
@@ -13,6 +14,15 @@ const AboutUsPage = () => {
                 <h1 className="text-center mb-3 lg:mb-6 text-[38px] xl:text-[38px] lg:text-[32px] md:text-[28px] sm:text-[26px] text-black leading-[1.2] font-semibold">
                   About Us
                 </h1>
+                <div className="my-4">
+                  <a
+                    href={BusinessCard}
+                    download="Business-Card.pdf"
+                    className="bg-blue-500 w-full md:w-auto text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors cursor-pointer"
+                  >
+                    Download Our Business Card
+                  </a>
+                </div>
 
                 <p className="mb-4 text-base leading-[1.6]">
                   At{" "}
