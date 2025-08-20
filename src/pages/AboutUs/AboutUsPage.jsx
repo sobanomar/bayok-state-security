@@ -70,14 +70,14 @@ const AboutUsPage = () => {
                         <p className="text-sm text-gray-600">
                           Bayok State Security Service
                         </p>
-                        <div className="mt-4 text-xs md:text-sm">
+                        <div className="mt-4">
                           <a
                             href={BusinessCard}
                             download="Business-Card.pdf"
                             className="bg-gradient-to-r from-[#1b1464] via-[#0087ef] to-[#1b1464] 
              bg-[length:200%_auto] hover:bg-right-center text-white 
-             text-[18px] font-normal tracking-[1px] border-0 rounded-[5px] 
-              px-4 md:px-8 transition-all duration-500 cursor-pointer py-2 
+              font-normal tracking-[1px] border-0 rounded-[5px] 
+              px-4 md:px-8 transition-all duration-500 cursor-pointer py-1.5 
              whitespace-normal break-words text-center"
                           >
                             Download Business Card

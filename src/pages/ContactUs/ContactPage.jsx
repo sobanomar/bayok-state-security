@@ -68,7 +68,7 @@ const ContactPage = () => {
         <div className="container mx-auto max-w-[1200px] px-6">
           <div className="grid grid-cols-1 lg:grid-cols-12 xl:grid-cols-12 gap-6">
             {/* Contact Info Column */}
-            <div className="lg:col-span-5 ">
+            <div className="order-2 lg:order-1 lg:col-span-5 ">
               <div className="bg-white rounded-[10px] p-4 lg:p-8 h-full shadow-[0_2px_8px_rgba(99,99,99,0.2)]">
                 <div className="flex items-center mb-3">
                   <span className="text-[18px] leading-[30px] text-gray-600">
@@ -83,67 +83,76 @@ const ContactPage = () => {
 
                 <ul className="space-y-5 mb-0 list-none p-0">
                   {/* Email */}
-                  <li className="flex items-start cursor-pointer">
-                    <div className="w-[60px] h-[60px] min-w-[60px] rounded-[10px] flex items-center justify-center text-white bg-gradient-to-b from-[rgba(0,135,239,0.9)] to-[rgba(20,24,100,0.9)] border-4 border-white shadow-[0_6px_6px_-2px_rgba(50,50,93,0.25),_0_3px_7px_-3px_rgba(0,0,0,0.3)] mr-4">
-                      <Mail size={30} />
-                    </div>
-                    <div className="text">
-                      <p className="mb-0 text-[16px]">
-                        <a
-                          href="mailto:admin@bayokstatesecurity.com.au"
-                          className="text-gray-600 no-underline"
-                        >
+                  <li className=" cursor-pointer">
+                    <a
+                      href="mailto:admin@bayokstatesecurity.com.au"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-gray-600 no-underline flex"
+                    >
+                      <div className="w-[60px] h-[60px] min-w-[60px] rounded-[10px] flex items-center justify-center text-white bg-gradient-to-b from-[rgba(0,135,239,0.9)] to-[rgba(20,24,100,0.9)] border-4 border-white shadow-[0_6px_6px_-2px_rgba(50,50,93,0.25),_0_3px_7px_-3px_rgba(0,0,0,0.3)] mr-4">
+                        <Mail size={30} />
+                      </div>
+                      <div className="text">
+                        <p className="mb-0 text-[16px]">
                           admin@bayokstatesecurity.com.au
-                        </a>
-                      </p>
-                      <strong className="block text-[19px] leading-[26px] text-[#0087ef] font-semibold">
-                        Send mail
-                      </strong>
-                    </div>
+                        </p>
+                        <strong className="block text-[19px] leading-[26px] text-[#0087ef] font-semibold">
+                          Send mail
+                        </strong>
+                      </div>
+                    </a>
                   </li>
 
                   {/* Phone */}
-                  <li className="flex items-start cursor-pointer">
-                    <div className="w-[60px] h-[60px] min-w-[60px] rounded-[10px] flex items-center justify-center text-white bg-gradient-to-b from-[rgba(0,135,239,0.9)] to-[rgba(20,24,100,0.9)] border-4 border-white shadow-[0_6px_6px_-2px_rgba(50,50,93,0.25),_0_3px_7px_-3px_rgba(0,0,0,0.3)] mr-4">
-                      <Phone size={30} />
-                    </div>
-                    <div className="text">
-                      <p className="mb-0 text-[16px]">
-                        <a
-                          href="tel:0408 635 693"
-                          className="text-gray-600 no-underline"
-                        >
-                          0408 635 693
-                        </a>
-                      </p>
-                      <strong className="block text-[19px] leading-[26px] text-[#0087ef] font-semibold">
-                        Phone Number
-                      </strong>
-                    </div>
+                  <li className="cursor-pointer">
+                    <a
+                      href="tel:0408635693"
+                      rel="noopener noreferrer"
+                      className="text-gray-600 no-underline flex"
+                    >
+                      <div className="w-[60px] h-[60px] min-w-[60px] rounded-[10px] flex items-center justify-center text-white bg-gradient-to-b from-[rgba(0,135,239,0.9)] to-[rgba(20,24,100,0.9)] border-4 border-white shadow-[0_6px_6px_-2px_rgba(50,50,93,0.25),_0_3px_7px_-3px_rgba(0,0,0,0.3)] mr-4">
+                        <Phone size={30} />
+                      </div>
+                      <div className="text">
+                        <p className="mb-0 text-[16px]">0408 635 693</p>
+                        <strong className="block text-[19px] leading-[26px] text-[#0087ef] font-semibold">
+                          Phone Number
+                        </strong>
+                      </div>
+                    </a>
                   </li>
 
                   {/* Location */}
-                  <li className="flex items-start cursor-pointer">
-                    <div className="w-[60px] h-[60px] min-w-[60px] rounded-[10px] flex items-center justify-center text-white bg-gradient-to-b from-[rgba(0,135,239,0.9)] to-[rgba(20,24,100,0.9)] border-4 border-white shadow-[0_6px_6px_-2px_rgba(50,50,93,0.25),_0_3px_7px_-3px_rgba(0,0,0,0.3)] mr-4">
-                      <MapPin size={30} />
-                    </div>
-                    <div className="text">
-                      <p className="mb-0 text-[15px] leading-[20px] max-w-[250px]">
-                        PO Box 2247 Ellenbrook WA
-                      </p>
-                      <strong className="block text-[19px] leading-[26px] text-[#0087ef] font-semibold">
-                        Location
-                      </strong>
-                    </div>
+
+                  <li className=" cursor-pointer">
+                    <a
+                      href="https://www.google.com/maps/search/?api=1&query=PO+Box+2247+Ellenbrook+WA"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-gray-600 no-underline flex"
+                    >
+                      <div className="w-[60px] h-[60px] min-w-[60px] rounded-[10px] flex items-center justify-center text-white bg-gradient-to-b from-[rgba(0,135,239,0.9)] to-[rgba(20,24,100,0.9)] border-4 border-white shadow-[0_6px_6px_-2px_rgba(50,50,93,0.25),_0_3px_7px_-3px_rgba(0,0,0,0.3)] mr-4">
+                        <MapPin size={30} />
+                      </div>
+                      <div className="text">
+                        <p className="mb-0 text-[15px] leading-[20px] max-w-[250px]">
+                          PO Box 2247 Ellenbrook WA
+                        </p>
+                        <strong className="block text-[19px] leading-[26px] text-[#0087ef] font-semibold">
+                          Location
+                        </strong>
+                      </div>
+                    </a>
                   </li>
                 </ul>
               </div>
             </div>
 
             {/* Contact Form Column */}
-            <div className="lg:col-span-7 ">
+            <div className="order-1 lg:order-2 lg:col-span-7 ">
               <div className="bg-white rounded-[10px] p-4 lg:p-8 pl-4 lg:pl-6 h-full shadow-[0_2px_8px_rgba(99,99,99,0.2)]">
-                <h2 className="text-center text-[25px] lg:text-[25px] md:text-[22px] sm:text-[22px] font-semibold text-black leading-[1.2] mb-3 lg:mb-6">
+                <h2 className="text-center text-2xl font-semibold text-black leading-[1.2] mb-3 lg:mb-6">
                   Make An Enquiry
                 </h2>
 

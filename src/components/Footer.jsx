@@ -112,7 +112,7 @@ const Footer = () => {
       ),
       title: "Address",
       content: "PO Box 2247 Ellenbrook WA",
-      link: null,
+      link: "https://www.google.com/maps/search/?api=1&query=PO+Box+2247+Ellenbrook+WA",
     },
   ];
 
@@ -219,7 +219,12 @@ const Footer = () => {
           {item.title}
         </strong>
         {item.link ? (
-          <a href={item.link} className="text-white">
+          <a
+            href={item.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white"
+          >
             {item.content}
           </a>
         ) : (
