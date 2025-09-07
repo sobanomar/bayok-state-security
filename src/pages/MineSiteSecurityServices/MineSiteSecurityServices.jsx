@@ -109,7 +109,7 @@ const MineSiteSecurityServices = () => {
       <AboutSection
         heading={"Benefits of Hiring a Mine Security Company"}
         subHeading={
-          "Bayok State Security Service provides expert mine security solutions to protect your site and operations.."
+          "Bayok State Security Service provides expert mine security solutions to protect your site and operations."
         }
         serviceDetails={aboutSectionList}
         mainImg={mainImg}
