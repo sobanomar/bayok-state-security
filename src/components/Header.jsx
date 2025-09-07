@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { ChevronDown, Phone, Menu, X, ArrowRight } from "lucide-react";
 import BayokLogo from "../assets/media/bayok-logo.jpeg";
 
@@ -7,6 +7,7 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isDrawerVisible, setIsDrawerVisible] = useState(false);
+  const location = useLocation();
 
   // Prevent body scroll when mobile menu is open
   useEffect(() => {
@@ -71,6 +72,7 @@ const Header = () => {
       name: "Gatehouse Security Services",
     },
   ];
+
   const socialLinks = [
     {
       href: "https://www.facebook.com/",
@@ -111,22 +113,47 @@ const Header = () => {
     { path: "/contact-us", name: "Contact Us" },
   ];
 
+  // Helper function to check if a nav item is active
+  const isActiveNavItem = (item) => {
+    if (item.hasDropdown) {
+      // Check if current path is the services page or any service subpage
+      return (
+        location.pathname === item.path ||
+        location.pathname.startsWith("/service/")
+      );
+    }
+    return location.pathname === item.path;
+  };
+
+  // Helper function to check if a service is active
+  const isActiveService = (servicePath) => {
+    return location.pathname === servicePath;
+  };
+
   const renderNavItem = (item) => {
+    const isActive = isActiveNavItem(item);
+
     if (item.hasDropdown) {
       return (
         <li
           key={item.path}
-          className="group relative text-blue-900  hover:text-blue-600"
+          className={`group relative transition-colors duration-300 ${
+            isActive ? "text-blue-600" : "text-blue-900 hover:text-blue-600"
+          }`}
         >
           <Link
             to={item.path}
-            className="group relative flex items-center gap-1 py-6 text-[17px] font-medium transition-colors duration-300 "
+            className="group relative flex items-center gap-1 py-6 text-[17px] font-medium transition-colors duration-300"
             onMouseEnter={() => setIsServicesOpen(true)}
             onMouseLeave={() => setIsServicesOpen(false)}
           >
             {item.name}
-            <ChevronDown className="h-5 w-5 " />
-            <span className="absolute bottom-0 left-0 h-1 w-0 rounded-full transition-all duration-500 group-hover:w-full"></span>
+            <ChevronDown className="h-5 w-5" />
+            <span
+              className={`absolute bottom-2 left-0 h-1 rounded-full transition-all duration-500 bg-blue-600 ${
+                isActive ? "w-full" : "w-0 group-hover:w-full"
+              }`}
+            ></span>
           </Link>
 
           <ul
@@ -139,23 +166,36 @@ const Header = () => {
             onMouseEnter={() => setIsServicesOpen(true)}
             onMouseLeave={() => setIsServicesOpen(false)}
           >
-            {services.map((service, index) => (
-              <li key={service.path} className="relative">
-                <Link
-                  to={service.path}
-                  className={`group relative block py-2 pl-4 pr-1 text-sm font-semibold transition-all duration-300 hover:pl-5 ${
-                    index < services.length - 1
-                      ? "border-b border-gray-100"
-                      : ""
-                  }`}
-                >
-                  <div className="ml-4">{service.name}</div>
-                  <span className="absolute left-1 top-1/2 -translate-y-1/2 text-xs opacity-0 transition-all duration-300 group-hover:left-2 group-hover:opacity-100">
-                    <ArrowRight width={18} height={18} />
-                  </span>
-                </Link>
-              </li>
-            ))}
+            {services.map((service, index) => {
+              const isServiceActive = isActiveService(service.path);
+              return (
+                <li key={service.path} className="relative">
+                  <Link
+                    to={service.path}
+                    className={`group relative block py-2 pl-4 pr-1 text-sm font-semibold transition-all duration-300 hover:pl-5 ${
+                      isServiceActive
+                        ? "text-blue-600 bg-blue-50 pl-5"
+                        : "text-gray-700 hover:text-blue-600"
+                    } ${
+                      index < services.length - 1
+                        ? "border-b border-gray-100"
+                        : ""
+                    }`}
+                  >
+                    <div className="ml-4">{service.name}</div>
+                    <span
+                      className={`absolute left-1 top-1/2 -translate-y-1/2 text-xs transition-all duration-300 ${
+                        isServiceActive
+                          ? "left-2 opacity-100 text-blue-600"
+                          : "opacity-0 group-hover:left-2 group-hover:opacity-100"
+                      }`}
+                    >
+                      <ArrowRight width={18} height={18} />
+                    </span>
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </li>
       );
@@ -164,14 +204,20 @@ const Header = () => {
     return (
       <li
         key={item.path}
-        className="relative text-blue-900  hover:text-blue-600"
+        className={`relative transition-colors duration-300 ${
+          isActive ? "text-blue-600" : "text-blue-900 hover:text-blue-600"
+        }`}
       >
         <Link
           to={item.path}
-          className="group relative block py-6 text-[17px] font-medium  transition-colors duration-300 "
+          className="group relative block py-6 text-[17px] font-medium transition-colors duration-300"
         >
           {item.name}
-          <span className="absolute bottom-0 left-0 h-1 w-0 rounded-full  transition-all duration-500 group-hover:w-full"></span>
+          <span
+            className={`absolute bottom-2 left-0 h-1 rounded-full transition-all duration-500 bg-blue-600 ${
+              isActive ? "w-full" : "w-0 group-hover:w-full"
+            }`}
+          ></span>
         </Link>
       </li>
     );
@@ -184,7 +230,7 @@ const Header = () => {
         aria-label={item.ariaLabel}
         target="_blank"
         rel="noopener noreferrer"
-        className="w-8 h-8 bg-white text-blue-900 flex items-center justify-center transition-all duration-300 rounded border-b-4 border-blue-900 "
+        className="w-8 h-8 bg-white text-blue-900 flex items-center justify-center transition-all duration-300 rounded border-b-4 border-blue-900"
       >
         {item.icon}
       </a>
@@ -192,14 +238,25 @@ const Header = () => {
   );
 
   const renderMobileNavItem = (item) => {
+    const isActive = isActiveNavItem(item);
+
     if (item.hasDropdown) {
       return (
-        <div key={item.path} className="border-b border-white">
+        <div key={item.path} className="border-b border-white/20">
           <button
             onClick={toggleServices}
-            className="flex w-full items-center justify-between px-4 py-3 text-left text-lg font-medium text-white hover:bg-blue-700 transition-colors"
+            className={`flex w-full items-center justify-between px-4 py-3 text-left text-lg font-medium transition-colors ${
+              isActive
+                ? "text-white bg-blue-700"
+                : "text-white hover:bg-blue-700"
+            }`}
           >
-            {item.name}
+            <span className="flex items-center">
+              {item.name}
+              {isActive && (
+                <span className="ml-2 w-2 h-2 bg-white rounded-full"></span>
+              )}
+            </span>
             <ChevronDown
               className={`h-5 w-5 text-white transition-transform duration-200 ${
                 isServicesOpen ? "rotate-180" : ""
@@ -212,17 +269,29 @@ const Header = () => {
             }`}
           >
             <ul className="space-y-1 px-8 py-2">
-              {services.map((service) => (
-                <li key={service.path}>
-                  <Link
-                    to={service.path}
-                    className="block py-1 text-base hover:bg-blue-700 transition-colors"
-                    onClick={closeMenu}
-                  >
-                    <div className="text-white">{service.name}</div>
-                  </Link>
-                </li>
-              ))}
+              {services.map((service) => {
+                const isServiceActive = isActiveService(service.path);
+                return (
+                  <li key={service.path}>
+                    <Link
+                      to={service.path}
+                      className={`block py-2 text-base transition-colors rounded px-2 ${
+                        isServiceActive
+                          ? "bg-blue-700 text-white"
+                          : "text-blue-100 hover:bg-blue-700 hover:text-white"
+                      }`}
+                      onClick={closeMenu}
+                    >
+                      <div className="flex items-center">
+                        {service.name}
+                        {isServiceActive && (
+                          <span className="ml-2 w-1.5 h-1.5 bg-white rounded-full"></span>
+                        )}
+                      </div>
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
           </div>
         </div>
@@ -233,10 +302,17 @@ const Header = () => {
       <Link
         key={item.path}
         to={item.path}
-        className="block py-3 px-4 text-lg font-medium text-white hover:bg-blue-700 transition-colors border-b"
+        className={`block py-3 px-4 text-lg font-medium transition-colors border-b border-white/20 ${
+          isActive ? "text-white bg-blue-700" : "text-white hover:bg-blue-700"
+        }`}
         onClick={closeMenu}
       >
-        {item.name}
+        <div className="flex items-center">
+          {item.name}
+          {isActive && (
+            <span className="ml-2 w-2 h-2 bg-white rounded-full"></span>
+          )}
+        </div>
       </Link>
     );
   };
@@ -252,7 +328,7 @@ const Header = () => {
           <div className="flex items-center">
             <div className="w-1/3 md:w-1/4 xl:w-1/3">
               <div className="absolute top-0 z-50 rounded-b-lg bg-white p-2">
-                <Link to="/" className="inline-block">
+                <Link to="/" className="inline-block ">
                   <img
                     src={BayokLogo}
                     className="h-auto max-w-full w-14 md:w-32"
