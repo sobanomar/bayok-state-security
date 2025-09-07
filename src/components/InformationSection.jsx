@@ -1,4 +1,4 @@
-import React from "react";
+import { CircleCheckBig } from "lucide-react";
 
 const InformationSection = ({ img, paragraph, heading, bulletPoints }) => {
   return (
@@ -39,15 +39,17 @@ const InformationSection = ({ img, paragraph, heading, bulletPoints }) => {
               >
                 {heading}
               </h2>
-              <p
-                className="mb-4 text-sm sm:text-base"
-                style={{ lineHeight: "26px" }}
-              >
+              <p className="mb-4 text-base" style={{ lineHeight: "26px" }}>
                 {paragraph}
               </p>
-              <ol style={{ listStyleType: "decimal", paddingLeft: "20px" }}>
+              <ol className="gap-2 flex flex-col">
                 {bulletPoints?.map((item, index) => (
-                  <li key={index}>{item}</li>
+                  <div className="flex">
+                    <CircleCheckBig className="mr-3 w-14 md:w-8 mt-1  text-blue-600" />
+                    <li className="" key={index}>
+                      {item}
+                    </li>
+                  </div>
                 ))}
               </ol>
             </div>

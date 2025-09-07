@@ -26,7 +26,7 @@ const HeroBanner = ({ heading, subHeading, img }) => {
                 {heading}
               </h1>
               <p
-                className="text-base sm:text-lg px-4"
+                className="text-base px-4"
                 style={{ marginBottom: "35px", lineHeight: "1.6" }}
               >
                 {subHeading}

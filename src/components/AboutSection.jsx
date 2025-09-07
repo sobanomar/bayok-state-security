@@ -18,7 +18,7 @@ const AboutSection = ({ mainImg, heading, subHeading, serviceDetails }) => {
               </div>
               <div>
                 <h2
-                  className="font-semibold text-center relative text-xl sm:text-2xl lg:text-3xl "
+                  className="font-semibold md:text-start relative text-xl sm:text-2xl lg:text-3xl "
                   style={{
                     lineHeight: "1.2",
                     paddingBottom: "20px",
@@ -32,22 +32,20 @@ const AboutSection = ({ mainImg, heading, subHeading, serviceDetails }) => {
                     style={{
                       content: '""',
                       bottom: "0",
+                      left: "0",
                       width: "120px",
                       height: "2px",
                       backgroundColor: "#8f0558",
-                      transform: "translateX(-50%)",
-                      left: "50%",
                     }}
                   ></div>
                   <div
                     className="absolute"
                     style={{
                       content: '""',
-                      left: "50%",
+                      left: "48.5px",
                       width: "23px",
                       height: "23px",
                       borderRadius: "100%",
-                      transform: "translateX(-50%)",
                       backgroundColor: "#8f0558",
                       bottom: "-10.5px",
                       border: "8px solid #fff",
@@ -55,7 +53,7 @@ const AboutSection = ({ mainImg, heading, subHeading, serviceDetails }) => {
                   ></div>
                 </h2>
                 <p
-                  className="text-base sm:text-lg text-center lg:text-left"
+                  className="text-base lg:text-left"
                   style={{
                     lineHeight: "1.6",
                     color: "#5a5a5a",
@@ -68,7 +66,7 @@ const AboutSection = ({ mainImg, heading, subHeading, serviceDetails }) => {
           </div>
           <div className="w-full lg:w-1/2">
             <div
-              className="h-full p-4 sm:p-6 rounded-lg"
+              className="h-full p-4 py sm:p-6 rounded-lg"
               style={{ backgroundColor: "#f0f3f6" }}
             >
               <ul
@@ -106,9 +104,7 @@ const AboutSection = ({ mainImg, heading, subHeading, serviceDetails }) => {
                       <h3 className="block font-semibold capitalize mb-2 text-lg sm:text-xl">
                         {item.title}
                       </h3>
-                      <p className="mb-0 text-sm sm:text-base">
-                        {item?.description}
-                      </p>
+                      <p className="mb-0 text-base">{item?.description}</p>
                     </div>
                   </li>
                 ))}

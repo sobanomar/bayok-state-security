@@ -29,7 +29,7 @@ const WhyChooseUs = ({ heading, subHeading, detailsList, mainImg }) => {
           </span>
         </div>
         <div className="w-full lg:w-1/2 ">
-          <div className="p-4 sm:p-8">
+          <div className="p-4 sm:p-8 ml-4">
             <div
               className="mb-6"
               style={{ fontSize: "16px", lineHeight: "25px" }}
@@ -69,7 +69,7 @@ const WhyChooseUs = ({ heading, subHeading, detailsList, mainImg }) => {
                   }}
                 ></div>
               </h2>
-              <p className="text-sm sm:text-base" style={{ color: "#5a5a5a" }}>
+              <p className="text-base" style={{ color: "#5a5a5a" }}>
                 {subHeading}
               </p>
             </div>
@@ -96,12 +96,10 @@ const WhyChooseUs = ({ heading, subHeading, detailsList, mainImg }) => {
                     </div>
                   </div>
                   <div className="pl-3">
-                    <h3 className="mb-2 font-semibold text-base sm:text-lg">
+                    <h3 className="mb-2 font-semibold text-lg sm:text-lg">
                       {item.title}
                     </h3>
-                    <p className="mb-0 text-xs sm:text-sm">
-                      {item.description}
-                    </p>
+                    <p className="mb-0 text-base">{item.description}</p>
                   </div>
                 </li>
               ))}
