@@ -11,42 +11,49 @@ import SecurityPatrolServices from "./pages/SecurityPatrolServices/SecurityPatro
 import MineSiteSecurityServices from "./pages/MineSiteSecurityServices/MineSiteSecurityServices";
 import GatehouseSecurityService from "./pages/GatehouseSecurityService/GatehouseSecurityService";
 import TermsAndConditions from "./pages/TermsAndConditions/TermsAndConditions";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Layout />}>
-        <Route index element={<Home />} />
-        <Route path="/about-us" element={<AboutUs />} />
-        <Route path="/contact-us" element={<ContactUs />} />
-        <Route path="/our-services" element={<OurServices />} />
-        <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
-        <Route
-          path="/service/construction-site-security"
-          element={<ConstructionSiteSecurity />}
-        />
-        <Route
-          path="/service/alarm-response-services"
-          element={<AlarmResponseSecurityServices />}
-        />
-        <Route
-          path="/service/security-patrol-services"
-          element={<SecurityPatrolServices />}
-        />
-        <Route
-          path="/service/construction-site-security"
-          element={<ConstructionSiteSecurity />}
-        />
-        <Route
-          path="/service/mine-site-security-services"
-          element={<MineSiteSecurityServices />}
-        />
-        <Route
-          path="/service/gatehouse-security-services"
-          element={<GatehouseSecurityService />}
-        />
-      </Route>
-    </Routes>
+    <>
+      <ScrollToTop />
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/contact-us" element={<ContactUs />} />
+          <Route path="/our-services" element={<OurServices />} />
+          <Route
+            path="/terms-and-conditions"
+            element={<TermsAndConditions />}
+          />
+          <Route
+            path="/service/construction-site-security"
+            element={<ConstructionSiteSecurity />}
+          />
+          <Route
+            path="/service/alarm-response-services"
+            element={<AlarmResponseSecurityServices />}
+          />
+          <Route
+            path="/service/security-patrol-services"
+            element={<SecurityPatrolServices />}
+          />
+          <Route
+            path="/service/construction-site-security"
+            element={<ConstructionSiteSecurity />}
+          />
+          <Route
+            path="/service/mine-site-security-services"
+            element={<MineSiteSecurityServices />}
+          />
+          <Route
+            path="/service/gatehouse-security-services"
+            element={<GatehouseSecurityService />}
+          />
+        </Route>
+      </Routes>
+    </>
   );
 }
 

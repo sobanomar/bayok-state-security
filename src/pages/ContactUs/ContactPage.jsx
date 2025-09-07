@@ -68,7 +68,7 @@ const ContactPage = () => {
         <div className="container mx-auto max-w-[1200px] px-6">
           <div className="grid grid-cols-1 lg:grid-cols-12 xl:grid-cols-12 gap-6">
             {/* Contact Info Column */}
-            <div className=" lg:col-span-5 ">
+            <div className="lg:col-span-5 ">
               <div className="bg-white rounded-[10px] p-4 lg:p-8 h-full shadow-[0_2px_8px_rgba(99,99,99,0.2)]">
                 <div className="flex items-center mb-3">
                   <span className="text-[18px] leading-[30px] text-gray-600">
@@ -150,7 +150,7 @@ const ContactPage = () => {
             </div>
 
             {/* Contact Form Column */}
-            <div className=" lg:col-span-7 ">
+            <div className="lg:col-span-7 ">
               <div className="bg-white rounded-[10px] p-4 lg:p-8 pl-4 lg:pl-6 h-full shadow-[0_2px_8px_rgba(99,99,99,0.2)]">
                 <h2 className="text-center text-2xl font-semibold text-black leading-[1.2] mb-3 lg:mb-6">
                   Make An Enquiry
