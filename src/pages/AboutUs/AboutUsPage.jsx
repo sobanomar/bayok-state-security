@@ -49,18 +49,21 @@ const AboutUsPage = () => {
                       <h2 className="text-[28px] xl:text-[28px] lg:text-[24px] md:text-[22px] sm:text-[20px] text-black leading-[1.2] font-semibold mb-4">
                         CEO's Message
                       </h2>
-                      <p className="text-base leading-[1.6] mb-4 italic">
+                      <p className="text-base leading-[1.6] mb-4  italic">
                         "As the CEO of Bayok State Security Service, I am proud
                         to lead a team committed to delivering reliable,
                         professional, and innovative security solutions our
-                        clients can trust. Our journey began with a simple
-                        vision—to make safety a shared responsibility. Today,
-                        that vision drives everything we do, from protecting
-                        businesses and construction sites to ensuring peace of
-                        mind for our clients. I remain dedicated to upholding
-                        the highest standards in the security industry and
-                        ensuring our services reflect integrity, accountability,
-                        and excellence."
+                        clients can trust.
+                        <br />
+                        Our journey began with a simple vision—to make safety a
+                        shared responsibility. Today, that vision drives
+                        everything we do, from protecting businesses and
+                        construction sites to ensuring peace of mind for our
+                        clients.
+                        <br />I remain dedicated to upholding the highest
+                        standards in the security industry and ensuring our
+                        services reflect integrity, accountability, and
+                        excellence."
                       </p>
                       <div>
                         <p className="font-semibold text-blue-600 text-lg">
