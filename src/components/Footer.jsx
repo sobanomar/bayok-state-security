@@ -81,8 +81,8 @@ const Footer = () => {
         </svg>
       ),
       title: "Email",
-      content: "admin@bayokstatesecurity.com.au",
-      link: "mailto:admin@bayokstatesecurity.com.au",
+      content: "TUTADHEL@YMAIL.COM",
+      link: "mailto:TUTADHEL@YMAIL.COM",
     },
     {
       icon: (
@@ -223,7 +223,7 @@ const Footer = () => {
             href={item.link}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-white"
+            className="text-white lowercase"
           >
             {item.content}
           </a>

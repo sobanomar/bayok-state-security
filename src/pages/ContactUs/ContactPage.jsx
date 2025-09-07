@@ -172,7 +172,7 @@ const ContactPage = () => {
                   {/* Email */}
                   <li className="cursor-pointer">
                     <a
-                      href="mailto:admin@bayokstatesecurity.com.au"
+                      href="mailto:TUTADHEL@YMAIL.COM"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-gray-600 no-underline flex"
@@ -181,8 +181,8 @@ const ContactPage = () => {
                         <Mail size={30} />
                       </div>
                       <div className="text">
-                        <p className="mb-0 text-[16px]">
-                          admin@bayokstatesecurity.com.au
+                        <p className="mb-0 text-[16px] lowercase">
+                          TUTADHEL@YMAIL.COM
                         </p>
                         <strong className="block text-[19px] leading-[26px] text-[#0087ef] font-semibold">
                           Send mail
