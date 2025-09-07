@@ -80,7 +80,7 @@ const AboutUsPage = () => {
               px-4 md:px-8 transition-all duration-500 cursor-pointer py-1.5 
              whitespace-normal break-words text-center"
                           >
-                            View Business Card
+                            Business Card
                           </a>
                         </div>
                       </div>
