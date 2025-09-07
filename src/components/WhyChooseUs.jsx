@@ -7,7 +7,7 @@ const WhyChooseUs = ({ heading, subHeading, detailsList, mainImg }) => {
         <div className="w-full lg:w-1/2 relative mb-8 lg:mb-0 ">
           {mainImg && (
             <img
-              className="h-full object-cover md:rounded-r-lg"
+              className="h-full w-full object-cover lg:rounded-br-lg"
               src={mainImg}
               alt={heading}
             />
