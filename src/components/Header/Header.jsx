@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { ChevronDown, Phone, Menu, X, ArrowRight } from "lucide-react";
-import BayokLogo from "../assets/media/bayok-logo.jpeg";
+import BayokLogo from "../../assets/media/bayok-logo.jpeg";
 import { Link } from "react-router-dom";
 
 const Header = () => {
