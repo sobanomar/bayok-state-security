@@ -33,34 +33,36 @@ const AboutUsPage = () => {
                   enhances the safety of people, assets, and operations.
                 </p>
 
-                {/* CEO's Message Section */}
                 <div className="bg-blue-50 border-l-4 border-blue-600 p-4 md:p-6 rounded-lg my-8">
-                  <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
-                    <div className="flex justify-center md:justify-start md:col-span-5">
+                  <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-stretch">
+                    {/* Image Section */}
+                    <div className="flex justify-center md:justify-start md:col-span-5 h-full">
                       <img
-                        className="h-62 md:h-96 w-96 rounded-lg object-cover"
+                        className="h-full w-full rounded-lg object-cover"
                         src={CEOPortrait}
                         alt="CEO Portrait"
                       />
                     </div>
-                    <div className="md:col-span-7">
+
+                    {/* Text Section */}
+                    <div className="md:col-span-7 flex flex-col justify-between">
                       <h2 className="text-[28px] xl:text-[28px] lg:text-[24px] md:text-[22px] sm:text-[20px] text-black leading-[1.2] font-semibold mb-4">
                         CEO's Message
                       </h2>
-                      <p className="text-base leading-[1.6] mb-6 italic">
+                      <p className="text-base leading-[1.6] mb-4 italic">
                         "As the CEO of Bayok State Security Service, I am proud
-                        to lead a team dedicated to delivering reliable,
+                        to lead a team committed to delivering reliable,
                         professional, and innovative security solutions our
-                        clients can trust. Our journey began with a vision to
-                        make safety a personal responsibility we share with
-                        every client. Born on 08/05/1985 in Dubai, Sudan, I hold
-                        a Bachelor of Business Management from MIT – Melbourne
-                        Institute of Technology, graduating on 10 December 2019.
-                        With this foundation, I remain committed to guiding our
-                        team in setting the highest standards in the security
-                        industry."
+                        clients can trust. Our journey began with a simple
+                        vision—to make safety a shared responsibility. Today,
+                        that vision drives everything we do, from protecting
+                        businesses and construction sites to ensuring peace of
+                        mind for our clients. I remain dedicated to upholding
+                        the highest standards in the security industry and
+                        ensuring our services reflect integrity, accountability,
+                        and excellence."
                       </p>
-                      <div className="mt-6">
+                      <div>
                         <p className="font-semibold text-blue-600 text-lg">
                           Christopher Bayok
                         </p>
@@ -75,10 +77,10 @@ const AboutUsPage = () => {
                             href={BusinessCard}
                             download="Business-Card.pdf"
                             className="bg-gradient-to-r from-[#1b1464] via-[#0087ef] to-[#1b1464] 
-             bg-[length:200%_auto] hover:bg-right-center text-white 
+              bg-[length:200%_auto] hover:bg-right-center text-white 
               font-normal tracking-[1px] border-0 rounded-[5px] 
               px-4 md:px-8 transition-all duration-500 cursor-pointer py-1.5 
-             whitespace-normal break-words text-center"
+              whitespace-normal break-words text-center"
                           >
                             Business Card
                           </a>
