@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { ChevronDown, Phone, Menu, X, ArrowRight } from "lucide-react";
 import BayokLogo from "../../assets/media/bayok-logo.jpeg";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom"; // Add useLocation import
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isDrawerVisible, setIsDrawerVisible] = useState(false);
   const [hoverTimeout, setHoverTimeout] = useState(null);
+
+  // Use the useLocation hook to get current location
+  const location = useLocation();
 
   // Prevent body scroll when mobile menu is open
   useEffect(() => {
@@ -27,6 +30,13 @@ const Header = () => {
       document.body.style.paddingRight = "";
     };
   }, [isMenuOpen]);
+
+  // Close mobile menu when route changes
+  useEffect(() => {
+    if (isMenuOpen) {
+      closeMenu();
+    }
+  }, [location.pathname]);
 
   // Handle services hover with proper timing
   const handleServicesMouseEnter = () => {
@@ -349,10 +359,8 @@ const Header = () => {
                 <Link to="/" className="inline-block ">
                   <img
                     src={BayokLogo}
-                    className="h-auto max-w-full w-14 md:w-32"
+                    className="h-auto max-w-full w-20 md:w-28"
                     alt="Bayok State Security Service Logo"
-                    width="130"
-                    height="50"
                   />
                 </Link>
               </div>
@@ -400,7 +408,7 @@ const Header = () => {
 
       {isMenuOpen && (
         <div className="fixed inset-0 z-50 lg:hidden" onClick={closeMenu}>
-          <div className="absolute inset-0 bg-black bg-opacity-50 transition-opacity duration-300"></div>
+          <div className="absolute inset-0  transition-opacity duration-300"></div>
           <div
             className={`absolute right-0 top-0 h-full w-80 max-w-[85vw] bg-blue-800 shadow-xl transform transition-transform duration-500 ease-in-out ${
               isDrawerVisible ? "translate-x-0" : "translate-x-full"

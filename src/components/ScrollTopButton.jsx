@@ -27,7 +27,7 @@ const ScrollTopButton = () => {
         <button
           onClick={scrollToTop}
           className="fixed bottom-6 right-6 z-50
-  bg-gradient-to-r from-indigo-900 via-sky-500 to-indigo-900
+  bg-gradient-to-r from-indigo-800 via-sky-600 to-indigo-800
   bg-[length:200%_auto] hover:bg-right-center
   text-white text-lg font-medium tracking-wide
   rounded-md px-2 py-2

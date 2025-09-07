@@ -6,11 +6,11 @@ import BusinessCard from "../../assets/business_card.pdf";
 const AboutUsPage = () => {
   return (
     <div className="font-fira text-black leading-[1.6] relative overflow-hidden w-full">
-      <section className="bg-[#f0f3f6] py-[50px] md:py-[30px] lg:py-[50px]">
+      <section className="bg-[#f0f3f6] py-[20px] md:py-[50px]">
         <div className="w-full px-4 mx-auto max-w-[540px] sm:max-w-[720px] md:max-w-[960px] lg:max-w-[1140px] xl:max-w-[1200px]">
           <div className="flex justify-center">
             <div className="w-full xl:w-11/12">
-              <div className="bg-white shadow-[rgba(0,0,0,0.16)_0px_1px_4px] mt-[25px] md:mt-[15px] lg:mt-[25px] p-[15px] md:p-[15px] lg:p-[25px] rounded-[10px]">
+              <div className="bg-white shadow-[rgba(0,0,0,0.16)_0px_1px_4px] mt-[25px] md:mt-[15px] lg:mt-[25px] p-[20px] md:p-[15px] lg:p-[25px] rounded-[10px]">
                 <h1 className="text-center mb-3 lg:mb-6 text-[38px] xl:text-[38px] lg:text-[32px] md:text-[28px] sm:text-[26px] text-black leading-[1.2] font-semibold">
                   About Us
                 </h1>
