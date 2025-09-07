@@ -330,6 +330,38 @@ const ContactPage = () => {
                           name="phone"
                           value={formData.phone}
                           onChange={handleInputChange}
+                          onKeyPress={(e) => {
+                            // Allow only numbers, +, and navigation keys
+                            if (
+                              !/[0-9+]/.test(e.key) &&
+                              ![
+                                "Backspace",
+                                "Delete",
+                                "Tab",
+                                "Escape",
+                                "Enter",
+                              ].includes(e.key)
+                            ) {
+                              e.preventDefault();
+                            }
+                          }}
+                          onInput={(e) => {
+                            // Remove any characters that aren't numbers or +
+                            e.target.value = e.target.value.replace(
+                              /[^0-9+]/g,
+                              ""
+                            );
+                            // Trigger the onChange handler with the cleaned value
+                            const syntheticEvent = {
+                              ...e,
+                              target: {
+                                ...e.target,
+                                name: "phone",
+                                value: e.target.value,
+                              },
+                            };
+                            handleInputChange(syntheticEvent);
+                          }}
                           disabled={isLoading}
                           required
                         />
