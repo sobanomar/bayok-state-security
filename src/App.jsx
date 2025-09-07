@@ -12,11 +12,13 @@ import MineSiteSecurityServices from "./pages/MineSiteSecurityServices/MineSiteS
 import GatehouseSecurityService from "./pages/GatehouseSecurityService/GatehouseSecurityService";
 import TermsAndConditions from "./pages/TermsAndConditions/TermsAndConditions";
 import ScrollToTop from "./components/ScrollToTop";
+import ScrollTopButton from "./components/ScrollTopButton";
 
 function App() {
   return (
     <>
       <ScrollToTop />
+      <ScrollTopButton />
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
