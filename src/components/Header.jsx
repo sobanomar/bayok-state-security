@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
 import { ChevronDown, Phone, Menu, X, ArrowRight } from "lucide-react";
 import BayokLogo from "../assets/media/bayok-logo.jpeg";
 
@@ -7,7 +6,32 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isDrawerVisible, setIsDrawerVisible] = useState(false);
-  const location = useLocation();
+  const [hoverTimeout, setHoverTimeout] = useState(null);
+
+  // Mock location for demo - replace with actual useLocation hook
+  const location = { pathname: "/" };
+
+  // Mock Link component for demo - replace with actual react-router-dom Link
+  const Link = ({
+    children,
+    className,
+    onClick,
+    onMouseEnter,
+    onMouseLeave,
+  }) => (
+    <a
+      href="#"
+      className={className}
+      onClick={(e) => {
+        e.preventDefault();
+        onClick && onClick(e);
+      }}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+    >
+      {children}
+    </a>
+  );
 
   // Prevent body scroll when mobile menu is open
   useEffect(() => {
@@ -27,6 +51,22 @@ const Header = () => {
       document.body.style.paddingRight = "";
     };
   }, [isMenuOpen]);
+
+  // Handle services hover with proper timing
+  const handleServicesMouseEnter = () => {
+    if (hoverTimeout) {
+      clearTimeout(hoverTimeout);
+      setHoverTimeout(null);
+    }
+    setIsServicesOpen(true);
+  };
+
+  const handleServicesMouseLeave = () => {
+    const timeout = setTimeout(() => {
+      setIsServicesOpen(false);
+    }, 200); // Small delay to prevent flickering
+    setHoverTimeout(timeout);
+  };
 
   const toggleMenu = () => {
     if (isMenuOpen) {
@@ -140,15 +180,19 @@ const Header = () => {
           className={`group relative transition-colors duration-300 ${
             isActive ? "text-blue-600" : "text-blue-900 hover:text-blue-600"
           }`}
+          onMouseEnter={handleServicesMouseEnter}
+          onMouseLeave={handleServicesMouseLeave}
         >
           <Link
             to={item.path}
             className="group relative flex items-center gap-1 py-6 text-[17px] font-medium transition-colors duration-300"
-            onMouseEnter={() => setIsServicesOpen(true)}
-            onMouseLeave={() => setIsServicesOpen(false)}
           >
             {item.name}
-            <ChevronDown className="h-5 w-5" />
+            <ChevronDown
+              className={`h-5 w-5 transition-transform duration-200 ${
+                isServicesOpen ? "rotate-180" : ""
+              }`}
+            />
             <span
               className={`absolute bottom-2 left-0 h-1 rounded-full transition-all duration-500 bg-blue-600 ${
                 isActive ? "w-full" : "w-0 group-hover:w-full"
@@ -157,14 +201,12 @@ const Header = () => {
           </Link>
 
           <ul
-            className={`absolute left-0 top-full z-50 min-w-[270px] transform rounded-b-md bg-white p-2 shadow-lg transition-all duration-300 ${
+            className={`absolute left-0 top-full z-50 min-w-[270px] transform rounded-b-md bg-white p-2 shadow-lg border border-gray-200 transition-all duration-300 ${
               isServicesOpen
                 ? "visible scale-y-100 opacity-100"
                 : "invisible scale-y-0 opacity-0"
             }`}
             style={{ transformOrigin: "0 0 0" }}
-            onMouseEnter={() => setIsServicesOpen(true)}
-            onMouseLeave={() => setIsServicesOpen(false)}
           >
             {services.map((service, index) => {
               const isServiceActive = isActiveService(service.path);
@@ -172,25 +214,25 @@ const Header = () => {
                 <li key={service.path} className="relative">
                   <Link
                     to={service.path}
-                    className={`group relative block py-2 pl-4 pr-1 text-sm font-semibold transition-all duration-300 hover:pl-5 ${
+                    className={`group relative block py-3 pl-4 pr-2 text-sm font-semibold transition-all duration-300 hover:pl-5 rounded ${
                       isServiceActive
                         ? "text-blue-600 bg-blue-50 pl-5"
-                        : "text-gray-700 hover:text-blue-600"
+                        : "text-gray-700 hover:text-blue-600 hover:bg-gray-50"
                     } ${
                       index < services.length - 1
                         ? "border-b border-gray-100"
                         : ""
                     }`}
                   >
-                    <div className="ml-4">{service.name}</div>
+                    <div className="ml-4 flex items-center">{service.name}</div>
                     <span
                       className={`absolute left-1 top-1/2 -translate-y-1/2 text-xs transition-all duration-300 ${
                         isServiceActive
                           ? "left-2 opacity-100 text-blue-600"
-                          : "opacity-0 group-hover:left-2 group-hover:opacity-100"
+                          : "opacity-0 group-hover:left-2 group-hover:opacity-100 text-blue-600"
                       }`}
                     >
-                      <ArrowRight width={18} height={18} />
+                      <ArrowRight width={16} height={16} />
                     </span>
                   </Link>
                 </li>
@@ -230,7 +272,7 @@ const Header = () => {
         aria-label={item.ariaLabel}
         target="_blank"
         rel="noopener noreferrer"
-        className="w-8 h-8 bg-white text-blue-900 flex items-center justify-center transition-all duration-300 rounded border-b-4 border-blue-900"
+        className="w-8 h-8 bg-white text-blue-900 flex items-center justify-center transition-all duration-300 rounded border-b-4 border-blue-900 hover:border-blue-600"
       >
         {item.icon}
       </a>
@@ -323,7 +365,7 @@ const Header = () => {
         fontFamily: '"Fira Sans", sans-serif',
       }}
     >
-      <header className="relative border-b border-gray-200 bg-white py-2 lg:py-0 font-fira">
+      <header className="relative border-b border-gray-200 bg-white py-4 font-fira">
         <div className="container mx-auto max-w-[1200px] px-6">
           <div className="flex items-center">
             <div className="w-1/3 md:w-1/4 xl:w-1/3">
@@ -360,7 +402,7 @@ const Header = () => {
                     </strong>
                     <a
                       href="tel:0408635693"
-                      className="leading-4 text-blue-600"
+                      className="leading-4 text-blue-600 hover:text-blue-800 transition-colors"
                     >
                       0408 635 693
                     </a>
@@ -368,7 +410,7 @@ const Header = () => {
                 </div>
 
                 <button
-                  className="bg-blue-800 p-1 rounded-lg block lg:hidden"
+                  className="bg-blue-800 p-1 rounded-lg block lg:hidden hover:bg-blue-900 transition-colors"
                   onClick={toggleMenu}
                   aria-label="Toggle navigation"
                 >
@@ -382,7 +424,7 @@ const Header = () => {
 
       {isMenuOpen && (
         <div className="fixed inset-0 z-50 lg:hidden" onClick={closeMenu}>
-          <div className="absolute inset-0 bg-opacity-50 transition-opacity duration-300"></div>
+          <div className="absolute inset-0 bg-black bg-opacity-50 transition-opacity duration-300"></div>
           <div
             className={`absolute right-0 top-0 h-full w-80 max-w-[85vw] bg-blue-800 shadow-xl transform transition-transform duration-500 ease-in-out ${
               isDrawerVisible ? "translate-x-0" : "translate-x-full"
@@ -415,7 +457,7 @@ const Header = () => {
                     </p>
                     <a
                       href="tel:0408635693"
-                      className="text-lg font-semibold text-white hover:text-blue-200"
+                      className="text-lg font-semibold text-white hover:text-blue-200 transition-colors"
                     >
                       0408 635 693
                     </a>

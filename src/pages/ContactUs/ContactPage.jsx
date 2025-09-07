@@ -323,6 +323,8 @@ const ContactPage = () => {
                         </span>
                         <input
                           type="tel"
+                          inputMode="numeric"
+                          pattern="[0-9]*"
                           className="w-full h-[46px] px-3 text-[14px] border-0 focus:outline-none focus:ring-0 bg-white disabled:bg-gray-50 disabled:text-gray-500"
                           placeholder="Phone Number"
                           name="phone"

@@ -33,6 +33,7 @@ const AboutUsPage = () => {
                   enhances the safety of people, assets, and operations.
                 </p>
 
+                {/* CEOs Message */}
                 <div className="bg-blue-50 border-l-4 border-blue-600 p-4 md:p-6 rounded-lg my-8">
                   <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-stretch">
                     {/* Image Section */}
