@@ -1,37 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { ChevronDown, Phone, Menu, X, ArrowRight } from "lucide-react";
 import BayokLogo from "../assets/media/bayok-logo.jpeg";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isDrawerVisible, setIsDrawerVisible] = useState(false);
   const [hoverTimeout, setHoverTimeout] = useState(null);
-
-  // Mock location for demo - replace with actual useLocation hook
-  const location = { pathname: "/" };
-
-  // Mock Link component for demo - replace with actual react-router-dom Link
-  const Link = ({
-    children,
-    className,
-    onClick,
-    onMouseEnter,
-    onMouseLeave,
-  }) => (
-    <a
-      href="#"
-      className={className}
-      onClick={(e) => {
-        e.preventDefault();
-        onClick && onClick(e);
-      }}
-      onMouseEnter={onMouseEnter}
-      onMouseLeave={onMouseLeave}
-    >
-      {children}
-    </a>
-  );
 
   // Prevent body scroll when mobile menu is open
   useEffect(() => {
@@ -365,7 +341,7 @@ const Header = () => {
         fontFamily: '"Fira Sans", sans-serif',
       }}
     >
-      <header className="relative border-b border-gray-200 bg-white py-4 font-fira">
+      <header className="relative border-b border-gray-200 bg-white py-4 lg:py-2 font-fira">
         <div className="container mx-auto max-w-[1200px] px-6">
           <div className="flex items-center">
             <div className="w-1/3 md:w-1/4 xl:w-1/3">
