@@ -45,7 +45,7 @@ const InformationSection = ({ img, paragraph, heading, bulletPoints }) => {
               <ol className="gap-2 flex flex-col">
                 {bulletPoints?.map((item, index) => (
                   <div className="flex">
-                    <CircleCheckBig className="mr-3 w-14 md:w-8 mt-1  text-blue-600" />
+                    <CircleCheckBig className="mr-2 w-14 md:w-8 mt-1  text-blue-600" />
                     <li className="" key={index}>
                       {item}
                     </li>
