@@ -70,7 +70,7 @@ const AboutUsPage = () => {
                         <p className="text-sm text-gray-600">
                           Bayok State Security Service
                         </p>
-                        <div className="mt-4">
+                        <div className="mt-2">
                           <a
                             href={BusinessCard}
                             download="Business-Card.pdf"
