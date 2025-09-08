@@ -146,7 +146,7 @@ const ServicesSection = ({ heading, subHeading }) => {
           <div className="w-full max-w-4xl">
             <div className="text-center mb-8 sm:mb-12">
               <h2
-                className="font-semibold text-center relative text-xl sm:text-2xl lg:text-3xl"
+                className="font-semibold text-center relative text-3xl sm:text-2xl lg:text-3xl"
                 style={{
                   lineHeight: "1.2",
                   paddingBottom: "20px",

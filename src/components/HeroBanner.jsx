@@ -17,18 +17,15 @@ const HeroBanner = ({ heading, subHeading, img }) => {
       {/* Content */}
       <div className="w-full max-w-[1200px] mx-auto px-4 sm:px-6 z-10">
         <div className="flex items-center justify-center">
-          <div className="w-full max-w-4xl">
+          <div className="w-full max-w-4xl ">
             <div className="text-center text-white mb-0">
               <h1
-                className="font-bold mb-4 text-2xl sm:text-3xl lg:text-4xl xl:text-5xl"
+                className="font-bold mb-4 text-3xl sm:text-3xl lg:text-4xl xl:text-5xl"
                 style={{ lineHeight: "1.2" }}
               >
                 {heading}
               </h1>
-              <p
-                className="text-base px-4"
-                style={{ marginBottom: "35px", lineHeight: "1.6" }}
-              >
+              <p className="text-base px-4" style={{ lineHeight: "1.6" }}>
                 {subHeading}
               </p>
             </div>

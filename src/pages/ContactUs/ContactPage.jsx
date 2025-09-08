@@ -181,7 +181,7 @@ const ContactPage = () => {
                         <Mail size={30} />
                       </div>
                       <div className="text">
-                        <p className="mb-0 text-[16px] lowercase">
+                        <p className="mb-0 text-[16px] lowercase">f
                           TUTADHEL@YMAIL.COM
                         </p>
                         <strong className="block text-[19px] leading-[26px] text-[#0087ef] font-semibold">

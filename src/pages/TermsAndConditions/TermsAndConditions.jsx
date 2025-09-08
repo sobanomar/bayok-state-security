@@ -1,10 +1,9 @@
-import React from "react";
-import StaticHTML from "../../components/StaticHTML";
+import TermsAndConditionsPage from "./TermsAndConditionsPage";
 
 const TermsAndConditions = () => {
   return (
     <div>
-      <StaticHTML path="/TermsAndConditions.html" />
+      <TermsAndConditionsPage />
     </div>
   );
 };
