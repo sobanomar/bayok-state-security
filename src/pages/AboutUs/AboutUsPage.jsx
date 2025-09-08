@@ -1,19 +1,50 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import CEOPortrait from "../../assets/media/coe_image.png";
-import BusinessCard from "../../assets/business_card.pdf";
+import BusinessCard from "../../assets/business_card.png";
+
+// Mock hero image for demo - replace with actual import
+const heroImage =
+  "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80";
 
 const AboutUsPage = () => {
   return (
     <div className="font-fira text-black leading-[1.6] relative overflow-hidden w-full">
+      <section className="relative min-h-[230px] lg:min-h-[230px] bg-cover bg-center bg-no-repeat flex items-center justify-center">
+        {/* Gradient Overlay */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(180deg, rgba(0, 135, 239, 0.8) 0%, rgba(20, 24, 100, 0.8) 100%)",
+            zIndex: 1,
+          }}
+        />
+
+        {/* Background Image Layer */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: `url(${heroImage})`,
+            zIndex: 0,
+          }}
+        />
+
+        {/* Content */}
+        <div className="relative z-10 container mx-auto max-w-[1200px] px-6">
+          <h1 className="text-white font-bold text-[38px] lg:text-[38px] md:text-[32px] sm:text-[28px] xs:text-[26px] tracking-[2px] leading-[1.2]">
+            About Us
+          </h1>
+        </div>
+      </section>
       <section className="bg-[#f0f3f6] py-[20px] md:py-[50px]">
         <div className="w-full px-4 mx-auto max-w-[540px] sm:max-w-[720px] md:max-w-[960px] lg:max-w-[1140px] xl:max-w-[1200px]">
           <div className="flex justify-center">
             <div className="w-full xl:w-11/12">
               <div className="bg-white shadow-[rgba(0,0,0,0.16)_0px_1px_4px] mt-[25px] md:mt-[15px] lg:mt-[25px] p-[20px] md:p-[15px] lg:p-[25px] rounded-[10px]">
-                <h1 className="text-center mb-3 lg:mb-6 text-[38px] xl:text-[38px] lg:text-[32px] md:text-[28px] sm:text-[26px] text-black leading-[1.2] font-semibold">
+                {/* <h1 className="text-center mb-3 lg:mb-6 text-[38px] xl:text-[38px] lg:text-[32px] md:text-[28px] sm:text-[26px] text-black leading-[1.2] font-semibold">
                   About Us
-                </h1>
+                </h1> */}
 
                 <p className="mb-4 text-base leading-[1.6]">
                   At{" "}
@@ -79,7 +110,7 @@ const AboutUsPage = () => {
                         <div className="mt-2">
                           <a
                             href={BusinessCard}
-                            download="Business-Card.pdf"
+                            download="Business-Card.png"
                             className="bg-gradient-to-r from-[#1b1464] via-[#0087ef] to-[#1b1464] 
               bg-[length:200%_auto] hover:bg-right-center text-white 
               font-normal tracking-[1px] border-0 rounded-[5px] 
