@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import CEOPortrait from "../../assets/media/ceo_portrait.jpg";
+import ASIAL_LOGO from "../../assets/media/ASIAL_LOGO.jpg";
 import BusinessCard from "../../assets/business_card.png";
 
 // Mock hero image for demo - replace with actual import
@@ -125,25 +126,34 @@ const AboutUsPage = () => {
                   </div>
                 </div>
 
-                <h2 className="text-[32px] xl:text-[32px] lg:text-[28px] md:text-[24px] sm:text-[23px] text-black leading-[1.2] font-semibold mb-2">
-                  Industry Association Membership
-                </h2>
-
-                <p className="mb-8 text-base leading-[1.6]">
-                  Bayok State Security is a proud member of the Australian
-                  Security Industry Association Limited (ASIAL), the peak
-                  national body for security professionals in Australia .
-                  Membership in ASIAL is recognized as a mark of distinction,
-                  indicating that we meet the highest standards of
-                  professionalism valued by clients, the public, and government
-                  . As an ASIAL member, we adhere to the association’s strict
-                  code of conduct and all required industry regulations,
-                  demonstrating our commitment to best-practice standards and
-                  ethical service . We proudly display the ASIAL member logo as
-                  a symbol of this commitment to quality and continuous
-                  improvement, giving our clients added confidence in the
-                  reliability and integrity of our security services
-                </p>
+                <div>
+                  <div className="flex flex-col sm:flex-row items-center sm:items-center">
+                    <img
+                      src={ASIAL_LOGO}
+                      alt="ASIAL_LOGO"
+                      className="w-32 sm:w-20 object-contain pb-4 sm:pb-6"
+                    />
+                    <h2 className="text-2xl sm:text-3xl text-black leading-[1.2] font-semibold mb-2 text-center sm:text-start">
+                      Industry Association Membership
+                    </h2>
+                  </div>
+                  <p className="mb-8 text-base leading-[1.6]">
+                    Bayok State Security is a proud member of the Australian
+                    Security Industry Association Limited (ASIAL), the peak
+                    national body for security professionals in Australia .
+                    Membership in ASIAL is recognized as a mark of distinction,
+                    indicating that we meet the highest standards of
+                    professionalism valued by clients, the public, and
+                    government . As an ASIAL member, we adhere to the
+                    association’s strict code of conduct and all required
+                    industry regulations, demonstrating our commitment to
+                    best-practice standards and ethical service . We proudly
+                    display the ASIAL member logo as a symbol of this commitment
+                    to quality and continuous improvement, giving our clients
+                    added confidence in the reliability and integrity of our
+                    security services
+                  </p>
+                </div>
 
                 <h2 className="text-[32px] xl:text-[32px] lg:text-[28px] md:text-[24px] sm:text-[23px] text-black leading-[1.2] font-semibold mb-2 mt-0">
                   Our Core Services
