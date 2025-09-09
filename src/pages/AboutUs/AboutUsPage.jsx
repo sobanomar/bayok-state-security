@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import CEOPortrait from "../../assets/media/coe_image.png";
+import CEOPortrait from "../../assets/media/ceo_portrait.jpg";
 import BusinessCard from "../../assets/business_card.png";
 
 // Mock hero image for demo - replace with actual import
@@ -41,7 +41,7 @@ const AboutUsPage = () => {
         <div className="w-full px-4 mx-auto max-w-[540px] sm:max-w-[720px] md:max-w-[960px] lg:max-w-[1140px] xl:max-w-[1200px]">
           <div className="flex justify-center">
             <div className="w-full xl:w-11/12">
-              <div className="bg-white shadow-[rgba(0,0,0,0.16)_0px_1px_4px] mt-[25px] md:mt-[15px] lg:mt-[25px] p-[20px] md:p-[15px] lg:p-[25px] rounded-[10px]">
+              <div className="bg-white shadow-[rgba(0,0,0,0.16)_0px_1px_4px] mt-2 sm:mt-8 p-6 sm:p-8 rounded-xl">
                 {/* <h1 className="text-center mb-3 lg:mb-6 text-[38px] xl:text-[38px] lg:text-[32px] md:text-[28px] sm:text-[26px] text-black leading-[1.2] font-semibold">
                   About Us
                 </h1> */}
@@ -110,7 +110,7 @@ const AboutUsPage = () => {
                         <div className="mt-2">
                           <a
                             href={BusinessCard}
-                            download="Business-Card.png"
+                            download="Business-Card.pngP"
                             className="bg-gradient-to-r from-[#1b1464] via-[#0087ef] to-[#1b1464] 
               bg-[length:200%_auto] hover:bg-right-center text-white 
               font-normal tracking-[1px] border-0 rounded-[5px] 
@@ -124,6 +124,26 @@ const AboutUsPage = () => {
                     </div>
                   </div>
                 </div>
+
+                <h2 className="text-[32px] xl:text-[32px] lg:text-[28px] md:text-[24px] sm:text-[23px] text-black leading-[1.2] font-semibold mb-2">
+                  Industry Association Membership
+                </h2>
+
+                <p className="mb-8 text-base leading-[1.6]">
+                  Bayok State Security is a proud member of the Australian
+                  Security Industry Association Limited (ASIAL), the peak
+                  national body for security professionals in Australia .
+                  Membership in ASIAL is recognized as a mark of distinction,
+                  indicating that we meet the highest standards of
+                  professionalism valued by clients, the public, and government
+                  . As an ASIAL member, we adhere to the association’s strict
+                  code of conduct and all required industry regulations,
+                  demonstrating our commitment to best-practice standards and
+                  ethical service . We proudly display the ASIAL member logo as
+                  a symbol of this commitment to quality and continuous
+                  improvement, giving our clients added confidence in the
+                  reliability and integrity of our security services
+                </p>
 
                 <h2 className="text-[32px] xl:text-[32px] lg:text-[28px] md:text-[24px] sm:text-[23px] text-black leading-[1.2] font-semibold mb-2 mt-0">
                   Our Core Services
