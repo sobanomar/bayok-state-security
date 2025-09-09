@@ -217,7 +217,7 @@ const AboutUsPage = () => {
                   Why Choose Us?
                 </h2>
 
-                <p className="mb-4 text-base leading-[1.6]">
+                <p className=" text-base leading-[1.6]">
                   Bayok State Security Service stands out for our commitment to
                   professionalism, reliability, and advanced security
                   technology. We pride ourselves on providing tailored security
